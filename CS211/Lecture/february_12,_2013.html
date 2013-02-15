@@ -1,0 +1,398 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 12, 2013</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>February 12, 2013</h1>
+
+<hr />
+
+<h2>Data Representation</h2>
+
+<ul>
+<li>Computers manipulate stored information. Stored in 8 bit bytes. Everything is in bytes.</li>
+<li>Decimal number system is natural for humans, because we have 5 fingers each hand.</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th>Display Form    </th>
+<th>   Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0b</code>    </td>
+<td>   binary</td>
+</tr>
+<tr>
+<td><code>0x</code>    </td>
+<td>   hex</td>
+</tr>
+<tr>
+<td><code>0o</code>    </td>
+<td>   octal</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Number Systems</h3>
+
+<ul>
+<li>Compromises a set of numbers, operations, and the rules. We need to assign values to numbers. Numbers are written as $$$d_n…d_2d_1d_0$$$. Each digit is in [0-9].</li>
+<li>Value of a number is computed by $$$\sum_{i=0}^n d_ix2^i$$$</li>
+<li>Binary representation is used in computers (easy to represent by switches)
+
+<h4>Hexadecimal Numbers</h4></li>
+<li>Base 16. Contains 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F. First 10 symbols are the same, with A = 10, B = 11, C = 12, D = 13, E = 14, F = 15.</li>
+<li>Written as $$$\sum_{i=0}^n d_ix16^i$$$
+
+<h4>Octal Numbers</h4></li>
+<li>Base 8. Is [0-7]. Numbers still written as $$$d_n…d_2d_1d_0$$$ and represented as $$$\sum_{i=0}^n ix8^i$$$
+
+<h3>Hex to Binary</h3></li>
+<li>Represented by 4 binary digits. 0x2A8C = 0b0010101010001100
+
+<h3>Octal to binary</h3></li>
+<li>Convert each to 3 bits, then string it to together.
+
+<blockquote><p>  Real programmers use hex, octal is too awkward.</p>
+
+<h3>Binary to Hex</h3></blockquote></li>
+<li>Do reverse, grab each set as 4 digits and change to each to hex. Go right to left.
+
+<h3>Decimal to Binary</h3></li>
+<li>What's the largest p,q, r… such that
+
+<ul>
+<li>$$$2 = 2^p + r_1$$$, where $$$r_1 &lt; 2^p$$$</li>
+<li>$$$n - 2^p = 2^q + r_2$$$, where $$$r_2 &lt; 2^q$$$</li>
+<li>$$$n - (2^p + 2^q) = 2^r + r_3$$$ where $$$r_3 &lt; 2^r$$$
+
+<h3>Fractions</h3></li>
+</ul>
+</li>
+<li>Represented as $$$2^52^42^32^22^12^0.2^{-1}2^{-2}2^{-3}…$$$ or each has $$$1/2^i$$$ for each ith slot.
+
+<h4>Data Sizes</h4></li>
+<li>Only pointers are different on 64bit machines with 8 byte pointers, instead of 4 byte pointers.
+
+<h4>Big Endian vs Little Endian</h4></li>
+<li>The question posed is, is it <code>A0BC0012</code> or <code>1200BCA0</code>
+
+<ul>
+<li><strong>Big Endian</strong> - most significant byte first (biggest value), with decreasing numeric significance as address increases
+
+<ul>
+<li>For example : <code>0x01020304</code> with most signifcant being <code>01</code>. Motorola, IBM, SPARC use this.</li>
+</ul>
+</li>
+<li><strong>Little Endian</strong> - least significant byte first (smallest value), with increasing numeric significance as address increases
+
+<ul>
+<li>For example : <code>0x01020304</code> with the least significant being <code>04</code>. Intel, VAX, Z80 use this.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>How to determine value when have a binary number spread across multiple bytes.</li>
+<li>It matters because it interprets machine code and values, and one computer sending data to another, so we must convert before.</li>
+<li>Neither is inherently superior.</li>
+</ul>
+
+
+<h3>Representing Integers</h3>
+
+<ul>
+<li>Signed quanitites can be negative.</li>
+<li>An unsigned integer in bits: $$$0…2^n-1$$$. How do we represent negative numbers? We use <strong>signed maginitude</strong>. One bit (left most) is for a sign with the rest being the number.
+
+<ul>
+<li>$$$10000_{10} = 00002710$$$</li>
+<li>$$$-10000_{10} = 80002710$$$</li>
+</ul>
+</li>
+<li>range of $$$-2^{n-1}…2^{n-1}$$$</li>
+<li>Both 0 and -0 are able to be displayed, this is a complication of signed values.</li>
+<li>Lowest 8bit byte is $$$-2^7 = -128$$$</li>
+<li>Highest is $$$2^7-1 = 127$$$</li>
+<li>Lowest 16bit byte is $$$-2^{16} = -32767$$$</li>
+<li>Highest is $$$2^{16}-1 = 32767$$$</li>
+<li>Lowest 32bit byte is $$$-2^{32} = -2147483648$$$</li>
+<li>Highest is $$$2^{32}-1 = 2147483647$$$
+
+<h4>One's Complement</h4></li>
+<li>Flip the bits
+
+<ul>
+<li>$$$10000_{10} = 00002710$$$</li>
+<li>$$$-10000_{10} = FFFFD8EF$$$
+
+<h4>Two's Complement</h4></li>
+</ul>
+</li>
+<li>All zero's and positives are represented the same way. $$$00002710$$$</li>
+<li>Get a negative by: flip the bits, then add one.</li>
+<li>Advantages
+
+<ul>
+<li>All (math functions like additon subtraction and multiplcation) are identical for positve and negative numbers.</li>
+<li>Simplified because we have only one zero</li>
+</ul>
+</li>
+<li>Range is $$$-d<em>{n-1} 2^{n-1} + \sum</em>{i=0}^{n-2} d_i 2^i$$$
+
+<h4>Example One</h4></li>
+<li>Flipped - $$$FFFFD8EF$$$</li>
+<li>Add 1 - $$$FFFFD8F0$$$</li>
+</ul>
+
+
+<h4>Example Two</h4>
+
+<ul>
+<li>Original $$$00000000$$$</li>
+<li>Flipped $$$FFFFFFFF$$$</li>
+<li>Add One $$$00000000$$$</li>
+</ul>
+
+
+<h4>Examples</h4>
+
+<ul>
+<li>$$$1 = 0x2^{31} +1 = 000000001$$$</li>
+<li><p>$$$-1 = -1x2^{31} + 2^{31}-1$$$</p></li>
+<li><p>$$$1000_{10}=0000003E8$$$</p></li>
+<li><p>$$$0x2^{31}+1000_{10}=1000$$$</p></li>
+<li><p>$$$-1000_{10} = FFFFFF218 = -1 x 2^{31} + 2147482651 = -100000$$$</p></li>
+</ul>
+
+
+<h3>ASCII</h3>
+
+<ul>
+<li>A character is stored as 1 byte, originally only used 128 values (7 bits). Digits are all together consecutively.</li>
+</ul>
+
+
+<pre><code>//ASCII to Integer
+int atoi(char * s) {
+    int value, mult;
+    if (*s == '-') {
+        mult = 1;
+        ++s;
+    }
+    else if (*s == '+') {
+        mult = 1;
+        ++s;
+    }
+    else
+        mult = 1;
+
+    value = 0;
+    while (isdigit(*s)) {
+        value = 10*value + (*s -);
+        ++s;
+    }
+    return mult*value;
+}
+</code></pre>
+
+<ul>
+<li>This program converts each each integer to ascii.</li>
+</ul>
+
+
+<h3>Unicode and UTF-8</h3>
+
+<ul>
+<li>Characters for other languages, standard that defines more than 107,000 characters across 90 scripts.</li>
+<li>Most common is UTF-8.
+
+<ul>
+<li>Variable length encoding of Unicode: 1-4 bytes for each character.</li>
+<li>1-byte form is reserved for conversation to ASCII</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Floating Point and Numbers</h3>
+
+<ul>
+<li>Integers typically written in ordinary decimal form, but can also be written in scientific notation.
+
+<ul>
+<li>Single precision - 32 bits</li>
+<li>Double precision - 64 bits</li>
+<li>Extended precision - 80 bits</li>
+</ul>
+</li>
+<li>A float in C is a 32 bit single precision. his is the float type.</li>
+<li>A double in C is 64 bits double precision.</li>
+<li>Some representations are <code>NaN</code> or not a number.
+
+<h5>Example</h5></li>
+<li>$$$12.375 to 1100.001 from 12 + 1/4 + 1/8$$$
+
+<ul>
+<li>Shifted down to $$$1.100011x2^3$$$</li>
+<li>From $$$127+3=130$$$
+
+<h4>Extended Precision</h4></li>
+</ul>
+</li>
+<li>80 bits used to represent a real number.</li>
+<li>1 sign bit, 15 bit exponent, 64 bit mantissa. 20 decimal digits of accuracy. Not supported in C.</li>
+</ul>
+
+</body>
+</html>

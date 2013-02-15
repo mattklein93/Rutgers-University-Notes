@@ -1,0 +1,73 @@
+Assignment 1
+------------
+
+-   Think of questions on how to do the assignment
+
+-   By tuesday, run code on the ilab machines
+
+C
+-
+
+All code is in jan24.c
+
+-   Two kinds of files, header and source files. headers end in .h and source
+    end in .c. Headers can share with other programs, while source uses them.
+
+-   .java code is machine, OS independent. Compiling the .java, the .class files
+    are machine, OS independent
+
+-   C code is machine, OS independent. Compiling them, output is an object file
+    which contains machine/OS specific code. The object file can not be
+    executed. **Link** the object file to create a machine specific executable.
+
+### Commands for C
+
+-   gcc cogito.c -\> a.out
+
+    -   can also specify multiple c files. a.out is the executable
+
+-   gcc -o cogito cogito.c -\> cogito
+
+    -   gcc -o NAME, one .c file and named NAME
+
+-   gcc -c cogito.c -\> cogito.o
+
+    -   gcc -c creates just an object file with the name of the .c file
+
+-   gcc cogito.o -\> a.out
+
+    -   creates a.out executable from the given object file
+
+-   gcc -o cogito2 cogito.c assem.o -\> cogio2
+
+-   gcc -g cogito.c -\> a.out
+
+-   gcc -g -o cogito cogito.c -\> cogito
+
+    -   the -g gives debug info. use -g as it is helpful.
+
+### Variables
+
+-   char, short, int, long are used. there is no byte. each can be prescded with
+    **unsigned** or non negative and up.
+
+-   float, double, long double. long double is most precise.
+
+-   modifies can be const and volatile.
+
+    -   **const **- variable can be set once. otherwise they can not be changed.
+
+    -   **volatile** -
+
+-   no new constructor
+
+### Arrays
+
+-   Similar to java, is 0 to n-1. However there is no bounds checking.
+
+### Union
+
+-   Similar to a struct. The difference are all members occupy the same space.
+    Unlike a struct, where each variable has a separate space.
+
+-   The size is of the longest member

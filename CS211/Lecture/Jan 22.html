@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="cs-211">CS 211</h1>
+<ul>
+<li><p>www.cs.rutgers.edu/~morbius/cs211</p></li>
+<li><p>morbius@cs.rutgers.edu</p></li>
+<li><p>office hours: Wednesdays 8:00-9:00 pm, Hill 403</p></li>
+<li><p>Bryant and O'Hallaron. Computer Systems: A Programmer's Perspective, 2nd edition. Addison-Wesley, 2011</p></li>
+<li><p>Kernighan and Ritchie. The C Programming Language, 2nd Edition, Prentice Hall, 1988.</p></li>
+<li><p>3 weeks to do each programming assignment</p></li>
+</ul>
+<p></p>
+<h1 id="main-components">Main Components</h1>
+<ul>
+<li><p>CPU</p>
+<ul>
+<li><p>ALU - Arithmetic Logic Unit</p>
+<ul>
+<li><p>Hard wired to do things such as adding and subtracting</p></li>
+<li><p>logical</p>
+<ul>
+<li><p>Or, And, Exclusive Or</p></li>
+</ul></li>
+<li><p>Comparison</p>
+<ul>
+<li><p>Result of the comparison from a condition code</p></li>
+</ul></li>
+<li><p>Control Flow instructions</p>
+<ul>
+<li><p>Changes what we execute next</p></li>
+</ul></li>
+<li><p>Character operations</p>
+<ul>
+<li><p>Move Bytes, compare bytes, interrupt</p></li>
+</ul></li>
+</ul></li>
+<li><p>Fetch and execute cycle</p>
+<ul>
+<li><p>CPU is &quot;fetching&quot; (finding) and then &quot;executing&quot; (running) these programs</p></li>
+<li><p>Starting</p>
+<ul>
+<li><p>Some hardwired architecture specific to start up, puts a value (address) in the program counter</p>
+<ul>
+<li><p>These are our instructions (such as running an operating system)</p></li>
+<li><p>First is the fetch cycle</p></li>
+</ul>
+<ol type="1">
+<li><p>Get the instruction</p></li>
+<li><p>Decode the instruction</p></li>
+<li><p>Input operands to the instruction</p></li>
+<li><p>Execute the instruction, do the operation</p></li>
+<li><p>Put the output into the output operands</p></li>
+<li><p>Change counter to next instruction unless there is a branch or jump (go to another instruction)</p></li>
+<li><p>Repeat</p></li>
+</ol>
+<ul>
+<li><p></p></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>registers - fastest memory</p></li>
+<li><p>PC - Program Counter, a register that contains the address that points to the next instruction to execute</p></li>
+<li><p>Control unit that controls and organizes each component</p></li>
+</ul></li>
+<li><p>Memory</p>
+<ul>
+<li><p>AKA Core Memory - now transistorized, instead of magnetic cores</p></li>
+<li><p>Random Access Memory RAM - read/write, getting to any part is constant time</p>
+<ul>
+<li><p>No need to read previous memory</p></li>
+</ul></li>
+<li><p>Address - specify a hex number to show our location in memory, it is how we read and write things</p></li>
+<li><p>Main memory is volatile</p>
+<ul>
+<li><p>volatile - turning off machine, what is in memory goes away</p></li>
+<li><p>Instructions are held here</p></li>
+<li><p>along with real data</p></li>
+</ul></li>
+<li><p>Tradeoff</p>
+<ul>
+<li><p>Large memory inexpensively, but is slow in terms of access</p></li>
+<li><p>slow compared to reading and writing from CPU</p></li>
+<li><p>however registers are the most expensive</p></li>
+</ul></li>
+</ul></li>
+<li><p>Bus</p>
+<ul>
+<li><p>Memory, CPU are all connected by the bus</p></li>
+</ul></li>
+<li><p>I/O devices</p>
+<ul>
+<li><p>how it communicates to outside</p>
+<ul>
+<li><p>Human Interfaces</p>
+<ul>
+<li><p>Mouse, keyboard, screen, etc</p></li>
+</ul></li>
+<li><p>Storage</p>
+<ul>
+<li><p>Disks, flash drives are not volatile</p></li>
+</ul></li>
+<li><p>Networking Cards</p>
+<ul>
+<li><p>NIC - network interface card</p></li>
+</ul></li>
+<li><p>Graphics Cards</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p></p>
+<ul>
+<li><p>Program</p>
+<ul>
+<li><p>is data, there is some electronically coded set of instructions of what to do (program)</p></li>
+<li><p>The hardware will recognize these, and then go and do things in a coherent fashion</p></li>
+<li><p>The bit patterns of these instructions, is specific to a type of hardware</p></li>
+<li><p>Instructions as data are what makes programs possible</p>
+<ul>
+<li><p>they are programs writing programs</p></li>
+<li><p>assemblers are machine specific</p></li>
+<li><p>compilers are machine independent</p></li>
+<li><p>Given the right set, computers can do things not intended</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="von-neumann-model">Von Neumann Model</h3>
+<ul>
+<li><p>Modern computer originated in 1936 with Alan Turin (Hypothetical)</p></li>
+<li><p>Von Neumann was involved in the Manhattan Project</p></li>
+<li><p>This brought him into collaboration of the program paper</p></li>
+<li><p><strong>A stored program computer in which a CPU and memory are connected by a bus</strong></p></li>
+</ul>
+<h3 id="von-neumann-bottleneck">Von Neumann Bottleneck</h3>
+<p><strong>Can only do one operation at a time, such as search or copy or execute</strong></p>
+<p></p>
+<h2 id="programming-meets-hardware">Programming meets hardware</h2>
+<ul>
+<li><p>High level programs let us do more, and are easier to deal with</p></li>
+<li><p>In Practice:</p>
+<ul>
+<li><p>Move data through a bridge to and from memory, to and from bus to and from human interfaces</p></li>
+</ul></li>
+<li><p>The Operating System</p>
+<ul>
+<li><p>The app runs with the OS, not on the OS (The OS is not a layer)</p></li>
+<li><p>Apps typically run on the hardware, and will switch over to the OS when needs help</p></li>
+</ul></li>
+</ul>
+<h3 id="moores-law">Moore's Law</h3>
+<ul>
+<li><p>Gordon Moore was an Intel Engineer</p></li>
+<li><p>Observation about improvements</p></li>
+<li><p>Processor speed doubles every 18 months</p></li>
+<li><p>Memory capacity doubles every 2 years</p></li>
+<li><p>Disk capacity doubles every year</p></li>
+</ul>
+</body>
+</html>

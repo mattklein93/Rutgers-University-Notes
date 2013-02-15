@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>January 31, 2013</title>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>January 31, 2013</h1>
+
+<hr />
+
+<h2>String Functions from string.h</h2>
+
+<ul>
+<li>All string functions believe it is a sequence of chars terminated by a null     sequence</li>
+</ul>
+
+
+<h3>String Copy</h3>
+
+<pre><code>char * strcpy(char *s1, const char *s2);            //Second into first
+char * strncpy(char *s1, const char *s2, int n);    //Copies at most n bytes
+</code></pre>
+
+<ul>
+<li>Both most point to something valid in memory, or segfault occurs</li>
+</ul>
+
+
+<hr />
+
+<h3>String Concat</h3>
+
+<pre><code>char * strcat (char *s1, const char *s2);
+char * strncat (char *s1, const char *s2, int n);
+</code></pre>
+
+<ul>
+<li>These concatinate the second char set to the first</li>
+</ul>
+
+
+<hr />
+
+<h3>String Compare</h3>
+
+<pre><code>int strcmp (const char *s1, const char *s2);
+int strncmp (const char *s1, const char *s2, int n);
+</code></pre>
+
+<ul>
+<li>If 0, the two strings are equal.</li>
+<li>If > 0 then the second is larger</li>
+<li>If &lt; 0 then the first is larger
+
+<ul>
+<li>Larger means lexicographic ordering</li>
+</ul>
+</li>
+<li>strncmp compares up to n characters</li>
+<li>These are case <strong>sensitive</strong>, stricmp and strincmp are <strong>case-insensitive</strong>
+
+<h5>Examples To Try</h5></li>
+<li>"A" &lt; "B"</li>
+<li>"AB" &lt; "B"</li>
+<li>"ABC" > "AB</li>
+<li>"ABC" &lt; "AC"</li>
+</ul>
+
+
+<hr />
+
+<h3>String Length</h3>
+
+<pre><code>int strlen(const char *s);
+</code></pre>
+
+<ul>
+<li>The string length <strong>does not</strong> count the null character at the end</li>
+</ul>
+
+
+<hr />
+
+<h3>Memory Functions</h3>
+
+<pre><code>void * memcpy(void *s1, const void *s2, int n);
+int memcmp(const void *s1, const void *s2, int n);
+void * memset(char *s1, char c, int n);
+</code></pre>
+
+<ul>
+<li>memcpy and memset let me pass <strong>any</strong> pointer type</li>
+<li>memcpy copies n bytes into s1, memcmp compares n bytes, memset sets n bytes of  c into s1</li>
+</ul>
+
+
+<blockquote><p>Weird, strange, unnatural things happen if what you are copying to and from   overlap in memory.</p>
+
+<hr /></blockquote>
+
+<h2>Preproccess</h2>
+
+<h3>Header Files and Source Files</h3>
+
+<h4>Header files</h4>
+
+<pre><code>#ifndef point_h //If not defined, point_h
+#define point_h 
+
+struct point {
+    int x,y;
+};
+
+#endif                  //Closes the ifndef
+</code></pre>
+
+<pre><code>#ifndef point_h
+#define point_h
+
+struct point {
+    int x,y;
+};
+
+#include "other.h"
+//If I include my own header files, they are in double
+//quotes otherwise they are in angled brackets
+#endif
+</code></pre>
+
+<ul>
+<li>This example will be known as <strong>point.h</strong></li>
+<li>This protects against multiple inclusions.</li>
+<li>We can put things we want to share inside header files, types we make, typedefs     we make, functions to use,</li>
+</ul>
+
+
+<pre><code>void bkrfcn(char * struct point* int);
+float cuberoot(float);
+</code></pre>
+
+<ul>
+<li><p>Functions must declared before use, but it is advisable to not code them inside the header file</p></li>
+<li><p>To share variables, place in source.c
+<code>
+int shared var;
+</code></p></li>
+<li>Place in header.h
+<code>
+Extern int sharedvar;
+</code></li>
+</ul>
+
+
+<hr />
+
+<h4>Dynamic Memory</h4>
+
+<pre><code>#include &lt;stdlib.h&gt;
+void * malloc(size_t size);
+void * realloc(void * p, size_t newsize);
+void free(void *);
+</code></pre>
+
+<ul>
+<blockquote>In C, dynamic memory allocation uses malloc, realloc, free
+As C programmers, we can get as much new memory as we need but we do not have
+garbage collection so we should free
+</ul>
+
+
+<hr />
+
+<h5>malloc</h5>
+
+<ul>
+<li>malloc takes a size in bytes to get these many bytes, and we get a pointer to   this new spot of memory.
+We can get something smaller, but if we put something larger in bad things  happen. <strong>DO NOT DO THIS</strong></li>
+</ul>
+</blockquote>
+
+<ul>
+<li>In order to be efficient, do not ask for small bytes at a time
+
+<h5>Example</h5></li>
+</ul>
+
+
+<pre><code>struct Node {
+    int value;
+    struct Node * next;
+};
+
+void wtf()  {
+    int a[10],i;
+
+    for (i = 0; i &lt;= 10; i++)
+        a[i] = 0;
+}
+</code></pre>
+
+<hr />
+
+<h5>realloc</h5>
+
+<ul>
+<li>Sets the old chunk to a new size given, frees the old chunk, but the problem is     the new chunk may be in a different space</li>
+<li>This chunk is <strong>uninitialized</strong></li>
+</ul>
+
+
+<hr />
+
+<h5>free</h5>
+
+<ul>
+<li>Frees the memory chunk at the pointer</li>
+</ul>
+
+
+<hr />
+
+<h6>Linked List Program Example</h6>
+
+<pre><code>int main () {
+    int x;
+    struct Node * p;
+    sruct Node * next;
+    struct Node * head = 0;
+    struct Node * tail = 0;
+
+    wtf();
+    while (printf("enter an integer-&gt;"), scanf("%d, &amp;x") &gt; 0) //Don't care about    //value, then test the scanf value, if it is legal go inside the body
+
+}
+</code></pre>
+
+<pre><code>p-&gt;value
+*(p).value
+</code></pre>
+
+<ul>
+<li>These are equivalent</li>
+</ul>
+
+</body>
+</html>

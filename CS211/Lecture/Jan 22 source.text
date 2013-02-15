@@ -1,0 +1,209 @@
+CS 211
+======
+
+-   www.cs.rutgers.edu/~morbius/cs211
+
+-   morbius@cs.rutgers.edu
+
+-   office hours: Wednesdays 8:00-9:00 pm, Hill 403
+
+-   Bryant and O'Hallaron. Computer Systems: A Programmer's Perspective, 2nd
+    edition. Addison-Wesley, 2011
+
+-   Kernighan and Ritchie. The C Programming Language, 2nd Edition, Prentice
+    Hall, 1988.
+
+-   3 weeks to do each programming assignment
+
+
+
+Main Components
+===============
+
+-   CPU
+
+    -   ALU - Arithmetic Logic Unit
+
+        -   Hard wired to do things such as adding and subtracting
+
+        -   logical
+
+            -   Or, And, Exclusive Or
+
+        -   Comparison
+
+            -   Result of the comparison from a condition code
+
+        -   Control Flow instructions
+
+            -   Changes what we execute next
+
+        -   Character operations
+
+            -   Move Bytes, compare bytes, interrupt
+
+    -   Fetch and execute cycle
+
+        -   CPU is "fetching" (finding) and then "executing" (running) these
+            programs
+
+        -   Starting
+
+            -   Some hardwired architecture specific to start up, puts a value
+                (address) in the program counter
+
+                -   These are our instructions (such as running an operating
+                    system)
+
+                -   First is the fetch cycle
+
+                1.  Get the instruction
+
+                2.  Decode the instruction
+
+                3.  Input operands to the instruction
+
+                4.  Execute the instruction, do the operation
+
+                5.  Put the output into the output operands
+
+                6.  Change counter to next instruction unless there is a branch
+                    or jump (go to another instruction)
+
+                7.  Repeat
+
+    -   registers - fastest memory
+
+    -   PC - Program Counter, a register that contains the address that points
+        to the next instruction to execute
+
+    -   Control unit that controls and organizes each component
+
+-   Memory
+
+    -   AKA Core Memory - now transistorized, instead of magnetic cores
+
+    -   Random Access Memory RAM - read/write, getting to any part is constant
+        time
+
+        -   No need to read previous memory
+
+    -   Address - specify a hex number to show our location in memory, it is how
+        we read and write things
+
+    -   Main memory is volatile
+
+        -   volatile - turning off machine, what is in memory goes away
+
+        -   Instructions are held here
+
+        -   along with real data
+
+    -   Tradeoff
+
+        -   Large memory inexpensively, but is slow in terms of access
+
+        -   slow compared to reading and writing from CPU
+
+        -   however registers are the most expensive
+
+-   Bus
+
+    -   Memory, CPU are all connected by the bus
+
+-   I/O devices
+
+    -   how it communicates to outside
+
+        -   Human Interfaces
+
+            -   Mouse, keyboard, screen, etc
+
+        -   Storage
+
+            -   Disks, flash drives are not volatile
+
+        -   Networking Cards
+
+            -   NIC - network interface card
+
+        -   Graphics Cards
+
+
+
+-   Program
+
+    -   is data, there is some electronically coded set of instructions of what
+        to do (program)
+
+    -   The hardware will recognize these, and then go and do things in a
+        coherent fashion
+
+    -   The bit patterns of these instructions, is specific to a type of
+        hardware
+
+    -   Instructions as data are what makes programs possible
+
+        -   they are programs writing programs
+
+        -   assemblers are machine specific
+
+        -   compilers are machine independent
+
+        -   Given the right set, computers can do things not intended
+
+### Von Neumann Model
+
+-   Modern computer originated in 1936 with Alan Turin (Hypothetical)
+
+-   Von Neumann was involved in the Manhattan Project
+
+-   This brought him into collaboration of the program paper
+
+-   **A stored program computer in which a CPU and memory are connected by a
+    bus**
+
+### Von Neumann Bottleneck
+
+    **Can only do one operation at a time, such as search or copy or execute**
+
+### A successor - Harvard Architecture
+
+-   Better performance because separate busses - one for instructions and one
+    for data
+
+    
+
+Programming meets hardware
+--------------------------
+
+-   High level programs let us do more, and are easier to deal with
+
+-   In Practice:
+
+    -   Move data through a bridge to and from memory, to and from bus to and
+        from human interfaces
+
+-   The Operating System
+
+    -   The app runs with the OS, not on the OS (The OS is not a layer)
+
+    -   Apps typically run on the hardware, and will switch over to the OS when
+        needs help
+
+### Moore's Law
+
+-   Gordon Moore was an Intel Engineer
+
+-   Observation about improvements
+
+-   Processor speed doubles every 18 months
+
+-   Memory capacity doubles every 2 years
+
+-   Disk capacity doubles every year
+
+-   If performance increases but memory can't keep up then it is determined
+    speed of the memory
+
+    -   CPU speeds have gotten faster but memroy cant keep up

@@ -1,0 +1,56 @@
+Jan 25
+======
+
+-   See examples on page 2 -
+
+### Example 1
+
+-   There  is an $8 x 8$ board, with 1 square covered already. You are given a 3
+    piece, or a *trinomal*. Is it possible to cover the entire board with them?
+
+-   Yes it is possible to cover then. So does $4 x 4$.
+
+-   Each is $2^k$. Assume that you are given a $2^k$ size board. Is it possible?
+
+-   Yes, because if one is blocked off in a $4 x 4$ you put what is missing in
+    the middle. It is possible to build around what is missing. This is
+    **induction**. It is also a **recursive **algorithm.
+
+    -   **Induction** - start simple and go up
+
+    -   **Recursion **- start high up, and go down
+
+### Example 2
+
+Given a triangle, $a^2 + b^2 = c^2$. $a = 1$ and $b = 1$. then $c = sqrt(2)$.
+
+-   **Thm** - $sqrt(2)$ is not a rational number
+
+            -   Prove this without loss of generality
+
+-   Suppose that $sqrt(2)$ is a rational number. So, $sqrt(2)$ is p/q and
+    supposed that without loss of generality, that p and q have no common
+    denominator.
+
+-   See notebook, page 3
+
+### Traveling Salesman Problem
+
+-   See notebook, page 3 -
+
+-   There are N cities: $n(n-1)(n-2)...1 = n!$
+
+                    $n*n!$
+
+-   The time unit is the **flop** - floating pint operations
+
+-   1 flop = $10^(-9)$ seconds
+
+-   For $n = 4$, is $4*4! * 10^(-9) ~= 10^2*10^(-9) = 10^(-7) ~= 10^(-3)$ so 1
+    ms
+
+-   For $n = 50$, is $50*50! ~= 10^(66) ms$, $ 10^(66)*10^(-9) sec$
+
+-   
+
+-   

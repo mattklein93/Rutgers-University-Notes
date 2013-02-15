@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 12, 2013</title>
+
+</head>
+<body>
+<h1>February 12, 2013</h1>
+
+<hr />
+
+<h2>Debugging and GDB</h2>
+
+<h6>Example Program</h6>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include "a.h"          //Should be in same directory. If it is upper, use "../a.h"
+//#include "/home/etc"  Absolute path starts with /
+
+int fun() {
+    int i = 0, result = 0;
+    for (; i &lt; 10; i++)
+        result += i;
+}
+
+void main() {
+    int ret = fun();
+}
+</code></pre>
+
+<ul>
+<li>First way is to use <code>printf(…)</code> statements.</li>
+<li>Second way is to use <code>gdb</code>.</li>
+<li>Compile using <code>gcc -g file</code> and then run <code>gdb file</code>.
+
+<ul>
+<li>Set a <strong>breakpoint</strong>, or a stop sign. Use command <code>b 3</code>, or <code>b "line"</code> The address given back is the address of that line.</li>
+<li>Can set multiple breakpoints, using the same command.</li>
+<li>Run using <code>run</code> or <code>r</code>.</li>
+<li>To print a variable, using <code>p "var"</code>.</li>
+<li>Use <code>next</code>, <code>n</code>, <code>step</code>, to continue. <code>step</code> can move into a function such as <code>strlen()</code> and <code>next</code> can not. <code>c</code> runs until the next breakpoint.</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2>Pointers in Functions</h2>
+
+<h2>Arrays and Pointers</h2>
+
+<h2>Passing an Array to a Function</h2>
+
+<pre><code>void fun(char *array) {
+    printf("%s\n", array)
+}
+
+void main() {
+    char array[] = {'1', '2', '3', '4', \0};
+    char *array1 = "1234";              //These are the same, both have size 5
+    fun(array);
+}
+</code></pre>
+
+<ul>
+<li>Can pass a pointer to the function (best), or the array itself, <code>void fun (char array[])</code> or even the size, <code>void fun (char array[5])</code>.
+
+<h6>Two Dimensional Array</h6></li>
+</ul>
+
+
+<pre><code>void fun(char (*array)[3]) {    //Or array[]2][3]
+    int i, j;
+    //loop
+        //loop
+}
+
+void main() {
+    char array[2][3] = {{'1', '2','s'},{'3', '4','d'}};
+    char *array1 = "1234";              //These are the same, both have size 5
+    fun(array);
+}
+</code></pre>
+</body>
+</html>

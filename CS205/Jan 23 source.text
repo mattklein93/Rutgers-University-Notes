@@ -1,0 +1,62 @@
+Discret Math
+============
+
+-   Naftaly Minsky
+
+-   Why discrete?
+
+    -   Foundation of computer science
+
+-   Main focus is proofs
+
+-   What is math used for?
+
+    1.  Modeling and understanding the world
+
+    2.  Exploiting the world
+
+    3.  Building things
+
+    4.  Proving
+
+    5.  Calculation
+
+-   How to study math?
+
+    1.  The best way is to think and talk with others
+
+Class Organization
+------------------
+
+-   3 TA's
+
+    1.  Wang
+
+    2.  Guntury
+
+    3.  Wunder
+
+-   Discrete Math by Ken Rosen 6th edition
+
+-   Student Solution guide
+
+### Syllabus
+
+1.  Logic and Basis of Proofs
+
+2.  Basic Math Structures
+
+3.  Variance
+
+4.  Induction and Recursion
+
+    -   Relation
+
+5.  Models of Computation
+
+-   Examples on notebook page 1
+
+### Supplements to Examples 1
+
+-   Assume the board is a chess board, always 2 more blacks and can not cover 2
+    blacks with 1 piece

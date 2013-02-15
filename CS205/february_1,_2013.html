@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 1, 2013</title>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>February 1, 2013</h1>
+
+<hr />
+
+<h2>Recap</h2>
+
+<h3>Prepositions and Formulas of Prepositions (Compound Prepositions)</h3>
+
+<ul>
+<li>Formula example, (P||Q)&amp;R</li>
+<li>There 16 binary connectors (4 or 5 are mostly used)and 1 unary connector</li>
+</ul>
+
+
+<h4>Precedence Order</h4>
+
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th> Name                </th>
+<th>   Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.    </td>
+<td> Not                 </td>
+<td>   $${\lnot}$$</td>
+</tr>
+<tr>
+<td>2.    </td>
+<td> Or                  </td>
+<td>   $${\lor}$$</td>
+</tr>
+<tr>
+<td>3.    </td>
+<td>And                  </td>
+<td>   $${\land}$$</td>
+</tr>
+<tr>
+<td>4     </td>
+<td> Implied             </td>
+<td>   $${\to}$$</td>
+</tr>
+<tr>
+<td>5     </td>
+<td> Double implication  </td>
+<td>   $${\leftrightarrow}$$</td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li><strong>Tautology</strong> - always true</li>
+<li><strong>Contradiction</strong> - always false</li>
+</ul>
+
+
+<hr />
+
+<h3>Equivalence</h3>
+
+<ul>
+<li>Two formulas, F1 ≡ F2 if their truth values are equivalent
+
+<h5>De Morgan's Rule</h5></li>
+<li>$${\lnot(P \land Q) \equiv \lnot P \lor  \lnot Q}$$</li>
+<li>$${\lnot(P \lor Q) \equiv \lnot P \land \lnot Q}$$</li>
+<li>$${P \to Q \equiv \lnot P \lor Q}$$
+
+<blockquote><p>This is the same because if P is false, then !P is true, then Q could be either
+true or false, it does not matter. Only one or the other matters as it is an
+<strong>OR</strong> statement. If !P is false, Q could still be true.</p></blockquote></li>
+</ul>
+
+
+<h3>Identities of Equivalence</h3>
+
+<p>$$  {P \lor F \equiv P} $$</p>
+
+<hr />
+
+<p>$$  P \lor T \equiv T $$</p>
+
+<hr />
+
+<p>$$  P \land F \equiv F $$</p>
+
+<hr />
+
+<p>$$  P \land T \equiv P $$</p>
+
+<hr />
+
+<p>$$  P \lor Q \equiv Q \lor P $$</p>
+
+<hr />
+
+<p>$$  P \land Q \equiv Q \land P $$</p>
+
+<hr />
+
+<p>$$  P1 \land P2 \lor P3 … \lor PK $$
+    -   Any order can be used because of distrubution</p>
+
+<hr />
+
+<p>$$ P \land !P \equiv F $$</p>
+
+<hr />
+
+<p>$$ P \land \lnot P \equiv T $$</p>
+
+<hr />
+
+<p>$$ (P \to Q) \equiv \lnot Q \to \lnot P $$</p>
+
+<hr />
+
+<p>$$((P \land Q) \to R) \equiv P \to(Q \to R) $$</p>
+
+<h6>Left Side</h6>
+
+<ol>
+<li>$$ \lnot (P \land Q)\lor R $$</li>
+<li>$$ \lnot P \lor \lnot Q \lor R $$</li>
+</ol>
+
+
+<h6>Right Side</h6>
+
+<ol>
+<li>$$ P \to (\lnot Q \lor R) $$</li>
+<li>$$ \lnot P \lor \lnot Q \lor R $$</li>
+</ol>
+
+
+<hr />
+
+<p>$$ \lnot (P_1 \lor P_2) \equiv \lnot P_1 \land \lnot P_2 $$
+Suppose we have 3
+$$ \lnot (P_1 \lor P_2 \lor P_3) \equiv \lnot P_1 \land \lnot P_2 \land P_3 $$
+What if we have any number?
+$$ \lnot (P_1 \lor P_2 … \lor P_m) \equiv \lnot P_1 \land \lnot P_2 … \land P_m$$</p>
+
+<hr />
+
+<h3>Functional Completeness</h3>
+
+<ul>
+<li><strong>Functional Complete</strong> - Set of operators is functionally complete if every formula can be expressable
+$${\land,\lor,\lnot}$$</li>
+<li><strong>Lemma</strong> - every formula can be expressed as a <em>disjunction</em> of    <em>conjunctions</em>
+
+<ul>
+<li>This is called <strong>disjunctive normal form</strong> (DNF)
+$${(P_1 \land \lnot P_2 \land P_3) \lor (\lnot P_1 \land P_3)\land (P_1 \land \lnot P_3) \land (…)}$$</li>
+</ul>
+</li>
+</ul>
+
+
+<p>$${F \equiv (Q_1 \lor Q_2) \to \lnot Q_3}$$</p>
+
+<table>
+<thead>
+<tr>
+<th>$${Q_1}$$   </th>
+<th>   $${Q_2}$$   </th>
+<th>   $${Q_3}$$   </th>
+<th>   F   </th>
+<th> Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0   </td>
+<td>   0   </td>
+<td>   0   </td>
+<td>   1   </td>
+<td>   $${\lnot Q_1 \land \lnot Q_2 \land \lnot Q_3}$$</td>
+</tr>
+<tr>
+<td>0   </td>
+<td>   0   </td>
+<td>   1   </td>
+<td>   1   </td>
+<td>   $${\lnot Q_1 \land \lnot Q_2 \land Q_3}$$</td>
+</tr>
+<tr>
+<td>0   </td>
+<td>   1   </td>
+<td>   0   </td>
+<td>   1   </td>
+<td>   $${\lnot Q_1 \land Q_2 \land Q_3}$$</td>
+</tr>
+<tr>
+<td>0   </td>
+<td>   1   </td>
+<td>   1   </td>
+<td>   0   </td>
+<td>   Nothing</td>
+</tr>
+<tr>
+<td>1   </td>
+<td>   0   </td>
+<td>   0   </td>
+<td>   1   </td>
+<td>   $${Q_1 \land \lnot Q_2 \land \lnot Q3}$$</td>
+</tr>
+<tr>
+<td>1   </td>
+<td>   0   </td>
+<td>   1   </td>
+<td>   0   </td>
+<td>   Nothing</td>
+</tr>
+<tr>
+<td>1   </td>
+<td>   1   </td>
+<td>   0   </td>
+<td>   1   </td>
+<td>   $${Q_1 \land Q_2 \land \lnot Q_3}$$</td>
+</tr>
+<tr>
+<td>1   </td>
+<td>   1   </td>
+<td>   1   </td>
+<td>   0   </td>
+<td>   Nothing</td>
+</tr>
+</tbody>
+</table>
+
+
+<h6>Compute DNF of $${P \to Q}$$</h6>
+
+<table>
+<thead>
+<tr>
+<th>P   </th>
+<th>   Q   </th>
+<th>   $${P \to Q}$$ </th>
+<th> Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1   </td>
+<td>   1   </td>
+<td>   1               </td>
+<td>   $${(P \land Q) \lor (\lnot P \land Q) \lor (\lnot P \lor \lnot Q)}$$</td>
+</tr>
+<tr>
+<td>1   </td>
+<td>   0   </td>
+<td>   0               </td>
+<td> Nothing</td>
+</tr>
+<tr>
+<td>0   </td>
+<td>   1   </td>
+<td>   1               </td>
+<td> Nothing</td>
+</tr>
+<tr>
+<td>0   </td>
+<td>   0   </td>
+<td>   1               </td>
+<td> Nothing</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

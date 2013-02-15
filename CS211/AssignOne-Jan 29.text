@@ -1,0 +1,34 @@
+Assignment One
+==============
+
+
+
+-   Read the file, then read line by line. Implement a loop to skip all space.
+
+
+
+`#include <stdio.h>`
+
+`#include <stdlib.h>`
+
+`void main() {`
+
+    `char c_array[] = "_______cs211 computer structure!";`
+
+    `int i = 0;`
+
+    `while (c_array[i] == ' ' || c_array[i] == '\t' || )`
+
+        `i++;`
+
+    `int j = 0;`
+
+    `while (c_array[i] != ' ') {`
+
+        `result[j] = c_array[i];`
+
+        
+
+        
+
+    `printf("c\n", c_array[i]);`

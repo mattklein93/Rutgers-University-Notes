@@ -1,0 +1,265 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 6, 2013</title>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>February 6, 2013</h1>
+
+<hr />
+
+<h2>Office Hours</h2>
+
+<ul>
+<li>Declare everything in a header file before it is used</li>
+<li>Can we use BST with linked list nodes?
+
+<ul>
+<li>Yes. Our efficicency must work reasonably well in quadratic form.</li>
+</ul>
+</li>
+<li>With traversing through the linked list with pointers:
+
+<ul>
+<li>Adding it in should be a fixed number of steps, such as a low number of lines. In order to add between, need a pointer to a previous and a next,</li>
+</ul>
+</li>
+<li>What is in the header file?
+
+<ul>
+<li><code>Types</code>, <code>structs</code>, <code>unions</code>, <code>enums</code>, functions declared (unlike <code>int main()</code>).</li>
+<li>If <code>struct</code> is used more than once, put it in header file. Such as using it here and there.</li>
+<li>Put functions in a header file, they must be declared or defined, or else you are given warnings. Without prototypes, compiler freaks out and will fuss. Helps prevent errors.</li>
+</ul>
+</li>
+<li>Producing wordstat executable is up to you. No need if definitions in a different file, or as long as they</li>
+<li>Using <code>char ** argv</code>
+
+<ul>
+<li><code>argv</code> points to an array of <code>char*</code> (strings). The first address is the name. This is how we can run our program and enter a file.</li>
+<li><pre><code>char *s;
+scanf("%s", s);
+</code></pre>
+
+<p><strong>NOTHING IS MALLOCed in this program</strong>.</p></li>
+</ul>
+</li>
+<li>Max length of words: 80 or so</li>
+<li>Deallocating memory from a string (rest of the length of a string, chopping up a chunk)
+
+<ul>
+<li>You can only free what you've taken, so don't allocate as much, instead read into a buffer then allocate based off that size.</li>
+</ul>
+</li>
+<li><code>free</code> what is <code>malloc</code>ed
+
+<ul>
+<li>All the extra spaced is reclaimed by the opearting system, and it goes away.
+
+<blockquote><p>  Take all the memory you want, but you better free it</p></blockquote></li>
+</ul>
+</li>
+<li>Does not matter if <code>wordstat.c</code> and <code>wordstat.h</code> are called wordstat.</li>
+<li>Warning with <code>realloc</code>:
+
+<ul>
+<li>The pointers may be in different spots, so we must point in the right spot.</li>
+<li>If I give pointer to free, I can't use it again. If I pass to realloc, I can't use it again.</li>
+</ul>
+
+
+<pre><code>p = malloc(100);
+p = realloc(p,200);
+</code></pre></li>
+</ul>
+
+
+<pre><code>char *s = "CS211";
+char c;
+c = s[5];
+printf("%s\n", s");
+s[5] = '4'; //Won't work
+</code></pre>
+
+<blockquote><p>  This is different from an array, such as <code>char array[] = "CS211"</code>, as CS211 is placed into the array. In memory, all these strings are put together one after the other. All constants are read only.</p></blockquote>
+
+<ul>
+<li>How do you modify a pointer?
+
+<ul>
+<li>Modifying what it points to - modify the refrence</li>
+</ul>
+</li>
+</ul>
+
+
+<hr />
+
+<h2>STDERR</h2>
+
+<ul>
+<li>In C, there is low level I/O. All communication is done using a file descripter, or an integer. No opened files, already has 3. STD input, Out, and Error. Input = 0, Out = 1, Error = 2. A file descripter is <strong>not</strong> a file pointer.</li>
+</ul>
+
+
+<pre><code>FILE *p;
+p = fdopen(2, "w"); //Converted to an error to write. Converts a file descripter to a pointer
+fprintf(P, "format string", …);
+</code></pre>
+
+<hr />
+
+<h2>Dealing with Segfaults</h2>
+
+<ul>
+<li><code>printf("GOT TO LINE %d FILE %s\n", __LINE__, __FILE__);</code> use this to figure out between what lines have crashed or just use a debugger</li>
+</ul>
+
+
+<hr />
+</body>
+</html>

@@ -1,0 +1,72 @@
+Recitation Jan 29
+=================
+
+Control flow
+------------
+
+1.  `if (condition)`
+
+    `run this`
+
+2.  `else`
+
+    `run this`
+
+    
+
+there can also be an `if(condition)` with no else
+
+### Loops
+
+1.  `while() {`
+
+2.  
+
+3.  `}`
+
+
+
+1.  `do {`
+
+2.  
+
+3.  `} while( );`
+
+
+
+1.  `for ( ; ; ) {`
+
+2.  
+
+3.  `}`
+
+
+
+in C, we can not do `for(int i = 0; i < 10; i++);` the value for i must be
+declared *before*.
+
+1.  `for ( ; ; ) {`
+
+2.  
+
+3.  `}`
+
+4.  `printf("d%", i);` prints out i.
+
+
+
+-   to print int types, use `d%`
+
+-   to print float, use `f%`
+
+-   to print double or long, use their own letter and a percent sign.
+
+-   To upload a file: `scp file.c location`
+
+-   Example: `scp a.c mhk69@cpp.rutgers.edu:/ilab/users/mhk69`
+
+-   To delete: `rm a.c`
+
+-   To download: `scp mhk69@cpp.rutgers.edu:/ilab/users/mhk69/a.c .`
+
+-   One period - current directory. Two periods - up one level

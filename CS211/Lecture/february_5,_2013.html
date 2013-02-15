@@ -1,0 +1,508 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 5, 2013</title>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>February 5, 2013</h1>
+
+<hr />
+
+<h2>I/O in stdio.h</h2>
+
+<ul>
+<li>There is no official checking of the types of the arguments and the format specifiers</li>
+</ul>
+
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int printf (const char *, …); //We can take any number of arguments by the …'s. Returns length
+</code></pre>
+
+<h5>Formatting ([ ]'s means optional parameters)</h5>
+
+<ul>
+<li><p><strong>Character</strong> - <code>%[-][width]c</code> - Displays a character with the specific width</p>
+
+<ul>
+<li><code>%c</code>    -   Not justified</li>
+<li><code>%3c</code>   -   Right justificed</li>
+<li><code>%-3c</code>  -   Left justified</li>
+</ul>
+</li>
+<li><p><strong>String</strong> -  <code>%[-][width][.precision]s</code> - Prints a string</p>
+
+<ul>
+<li>Precision is the number of characters to print</li>
+</ul>
+</li>
+<li><strong>Integers</strong> - <code>%[-][+ or _ (_ is a blank)][width][l]d</code> - Prints an integer
+
+<ul>
+<li>l means treat as <em>long</em></li>
+<li>The + is <em>positive only</em>
+
+<ul>
+<li>% d 43</li>
+<li>%+d+43
+
+<h6>Alternate Ways to Displays Intgers</h6></li>
+</ul>
+</li>
+<li><code>%[-][#][width][l]u</code> - unsigned (0 or greater)
+
+<ul>
+<li>%u 777626577</li>
+</ul>
+</li>
+<li><code>%[-][#][width][l]O</code> - Octal numbers
+
+<ul>
+<li>%O 5626321721</li>
+</ul>
+</li>
+<li><code>%[-][#][width][l]o</code> - Octal
+
+<ul>
+<li>%#o 05626321721</li>
+</ul>
+</li>
+<li><code>%[-][#][width][l]X</code> - Hex numbers
+
+<ul>
+<li>%x  2E59A3D1</li>
+</ul>
+</li>
+<li><code>%[-][#][width][l]x</code> - Octal
+
+<ul>
+<li>%#x 0x2E59A3D1</li>
+<li>The # sign is for a 0 a O/o or a X/x in front</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Floating point</strong> - All are passed as <em>doubles</em>
+
+<ul>
+<li><code>%[-][+ or _][#][width][.precision] f</code> - no exponent</li>
+<li><code>%[-][+ or _][#][width][.precision] e</code> - exponent</li>
+<li><code>%[-][+ or _][#][width][.precision] E</code> - exponent</li>
+<li><code>%[-][+ or _][#][width][.precision] g</code> - auto</li>
+<li><code>%[-][+ or _][#][width][.precision] G</code> - Auto</li>
+</ul>
+</li>
+</ul>
+
+
+<h6>Special \ Keys</h6>
+
+<ul>
+<li><code>\n</code> - New line to next line</li>
+<li><code>\r</code> - Goes to new line but starts at the previous line</li>
+<li><code>\0 digits</code> - Octal</li>
+<li><code>\X digits</code> - Hex</li>
+</ul>
+
+
+<h6>Examples</h6>
+
+<pre><code>int i = 42;
+char str[] = "hello";
+char * ps = " i am fine";
+float e = 2.218;
+printf ("str is %s, i is %d, e is %g\n", str, i, e);
+</code></pre>
+
+<h3>Warnings</h3>
+
+<blockquote><p>  To use %s, we must point to a null terminated string. Without doing this, we will get a segfault. Nobody checks if I specifiy multiple format items and use the wrong amount. This must be checked by ourselves.</p></blockquote>
+
+<h3>File Output</h3>
+
+<pre><code>int fprintf(file *, const char *, …); //Returns length
+int sprintf(char *, const char *, …); //Returns length
+</code></pre>
+
+<ul>
+<li><code>fprintf</code> - writes to a file</li>
+<li><code>sprintf</code> - Attaches the rest of the characters the first character
+
+<ul>
+<li>Sprintf does <strong>not</strong> automatically allocate memor</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>File input</h3>
+
+<pre><code>int scanf(const char * fmt, …);       //Returns the number matched
+</code></pre>
+
+<ul>
+<li><code>%c[width]c</code>    - Characters</li>
+<li><code>%[width]s</code> -   Strings, reads up to white space</li>
+<li><strong>Integers</strong>
+
+<ul>
+<li>l or h for a long</li>
+<li><code>%[width][l or h]d</code> - signed</li>
+<li><code>%[width][l or h]u</code> - unsigned</li>
+<li><code>%[width][l or h]o</code> - octal</li>
+<li><code>%[width][l or h]x</code> - hex</li>
+</ul>
+</li>
+<li><strong>FLoating point</strong>
+
+<ul>
+<li><code>%[width][l]f</code> -</li>
+<li><code>%[width][l]e</code> - Exponent</li>
+<li><code>%[width][l]g</code> - No exponent</li>
+</ul>
+</li>
+<li><strong>Scanset</strong>
+
+<ul>
+<li><code>%[*][width]scanset</code>
+
+<ul>
+<li><strong>Example</strong>
+
+<ul>
+<li>Must use  the [ ] in declaration</li>
+<li>Things that are not format items can be placed in the scanset</li>
+<li><code>%[abcd]</code></li>
+<li><code>%[a-z]</code></li>
+<li><code>%[a-f0-9]</code></li>
+<li><code>%[`n]\n</code><sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> - the ` means <strong>not</strong>, this example is everything that is not the new line</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h6>Example</h6>
+
+<pre><code>while (scanf("%d", &amp;someint) &gt; 0)
+</code></pre>
+
+<ul>
+<li>Expects an integer, goes until one is not found</li>
+</ul>
+</li>
+</ul>
+
+
+<pre><code>int fscanf(file *, const char *fmt, …);
+int sscanf(const char *, const char *fmt …);
+</code></pre>
+
+<blockquote><p>  For sscanf, read as command line. sscanf lets use read a string and put it into a number</p></blockquote>
+
+<h6>For example</h6>
+
+<pre><code>int main (int argc, char** argv) { 
+int i;
+for (i = 0; i &lt; argc; i++) {
+    if (sscanf(argv[i], "%d", &amp;x) &gt; 0)
+        printf("argv[%d] is %d\n", i, x);
+    else
+        printf("program only wants numbers numbskull.");
+}
+</code></pre>
+
+<ul>
+<li>This can only read numbers</li>
+</ul>
+
+
+<h3>Opening and Reading Files</h3>
+
+<ul>
+<li>Five basic file operations: open, close, read, write, and move (seeking)</li>
+<li>Opening is us asking the operating system to open it.</li>
+<li>When we are reading or writing, this will maintain where we currently are. Reading more than once remembers were we left off</li>
+</ul>
+
+
+<blockquote><p>  A sharp scaple in the hands in a surgeon is good. In Java, sharp things are dangerous. The responsibility is for you.</p></blockquote>
+
+<pre><code>#include &lt;stdio.h&gt;
+file * fopen( const char * name, const char * type);
+</code></pre>
+
+<ul>
+<li>We can pass file name, file path, and relative file path
+
+<ul>
+<li><h6>For example</h6></li>
+<li><code>"input.txt"</code> - Simple file name in current directory</li>
+<li><code>"../otherdir/input.txt"</code> - Relative path name, from where I currently am. This one in particular states go up one directory, then to otherdir, then input.txt</li>
+<li><code>"/users/bkr/cs211/prog1/input.txt"</code> - Full path, or <em>absolute</em> path. Does not matter where I am.</li>
+</ul>
+</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th>Mode    </th>
+<th>   Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r       </td>
+<td>   Read at beginning</td>
+</tr>
+<tr>
+<td>rb      </td>
+<td>   Read a binary file</td>
+</tr>
+<tr>
+<td>w       </td>
+<td>   Write (Creates if not existence)</td>
+</tr>
+<tr>
+<td>wb      </td>
+<td>   Write a binary file</td>
+</tr>
+<tr>
+<td>a       </td>
+<td>   Open for output, but appends to end</td>
+</tr>
+<tr>
+<td>ab      </td>
+<td>   Open a binary for output, creates if it doesn't exist</td>
+</tr>
+<tr>
+<td>--------</td>
+<td>-----------</td>
+</tr>
+<tr>
+<td>r+      </td>
+<td>   Read and write</td>
+</tr>
+<tr>
+<td>r+b     </td>
+<td>   Read and write a binary</td>
+</tr>
+<tr>
+<td>rb+     </td>
+<td>   Read and write a binary</td>
+</tr>
+<tr>
+<td>w+      </td>
+<td>   Truncate or create</td>
+</tr>
+<tr>
+<td>w+b     </td>
+<td>   Truncate or create a binary</td>
+</tr>
+<tr>
+<td>wb+     </td>
+<td>   Truncate or create a binary</td>
+</tr>
+<tr>
+<td>a+      </td>
+<td>   Open at end, or create a new</td>
+</tr>
+<tr>
+<td>a+b     </td>
+<td>   Open at end of a binary</td>
+</tr>
+<tr>
+<td>ab+     </td>
+<td>   Open at end of a binary</td>
+</tr>
+</tbody>
+</table>
+
+
+<blockquote><p>  I am Morbius because Brian Russell is a common name. They finally made me pick one. Forbidden Planet 1956, a character is named Morbius so I went with that name. He is the father of the daughter.</p></blockquote>
+
+<h5>Moving around</h5>
+
+<pre><code>int fseek(file *, long offset, int whence);
+</code></pre>
+
+<ul>
+<li><code>whence</code> can be <code>seekset</code>, <code>seekcur</code>, <code>seekend</code>
+
+<ul>
+<li><code>seekset</code> is from the beginning, only positive</li>
+<li><code>seekcur</code> is where I currently am. Forward is positive, backwards is negative.</li>
+<li><code>seekend</code> is from the end, and is always a negative nummber</li>
+</ul>
+</li>
+</ul>
+
+
+<h5>Closing a File</h5>
+
+<pre><code>int fclose(file *);
+</code></pre>
+
+<ul>
+<li>Close it when done. <strong>Important for correctness</strong> due to buffered I/O operations, but it is not written.</li>
+<li><code>fclose</code> actually saves the file</li>
+</ul>
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Morbius&rsquo;s favorite<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 6, 2013</title>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>February 6, 2013</h1>
+
+<hr />
+
+<h2>Review</h2>
+
+<p>$$\lnot , \land, \lor$$ is functionally complete, however we do not need all three.
+$${\lnot, \land}$$ $${\lnot, \lor}$$ both are functionally complete because of De Morgan's law:
+$${A \land B \equiv \lnot \lnot (A \land B) \equiv \lnot (\lnot A \lor \lnot B)}$$
+$${\lnot(A \land B) \equiv \lnot A \lor \lnot B}$$</p>
+
+<hr />
+
+<h2>Predicate Logic (Calculus)</h2>
+
+<ul>
+<li>For every real number <strong>x</strong>, (one of) the following is true: $$sin(x)^2 + cos(x)^2 = 1$$
+$$5*x+3 = 15$$</li>
+<li>Both are ambigious, what is X? So we must use predicate logic.</li>
+<li><p>A <strong>predicate</strong> is a statement involving one or more variables in a <em>specified domain</em> (set) such that binding these variables to values in this domain turns this statement to a proposition.</p>
+
+<blockquote><p>  A predicate is also called a <strong>propositional function</strong>.</p></blockquote></li>
+<li><p>For example, in $$5*x+3=15$$ if $$x-3 = -5$$ becomes true for all integers, but no positive</p></li>
+<li>Eventually, P(x) will be true can not be expressable through predicate logic.</li>
+</ul>
+
+
+<hr />
+
+<h3>Unumerated Quantified</h3>
+
+<ul>
+<li>Displayed as $$\forall\ X \in D,\ P(X)$$</li>
+<li><p>The truth value of $$\forall\ X \in D,\ x^2 \geq x$$ Let D be integers, is true. Decimals and do not work.</p></li>
+<li><p>$$\forall\ X \in Real\ Numbers,\ 3x+5=15$$ $$\forall\ X \in Real,\ (sin(x)^2 + cos(x)^2 = 1)$$ These have a preposition because it is true or false.</p></li>
+<li>Let D be empty. Let X be all the people on Earth who were born on the moon. $$\forall\ X \in D,\ (X\ speaks\ English)$$ It is defined to be true for D which is empty.</li>
+</ul>
+
+
+<h5>Non-math Example</h5>
+
+<ul>
+<li>Let D be all the students of Rutgers $$\forall\ S \in\ D\ (S\ is\ enrolled\ in\ 205)$$ This is <em>False</em>.</li>
+</ul>
+
+
+<h5>Alternate Displays</h5>
+
+<ul>
+<li>$$\forall\ X,\ P(X)$$
+
+<h6>Finite only</h6></li>
+<li>$$\forall\ X \in D,\ P(X) \equiv P(x_1)\land P(x_2)\land …P(x_…)$$ and $$D = {x_1,x_2,…,x_m}$$</li>
+</ul>
+
+
+<hr />
+
+<h3>Existential</h3>
+
+<ul>
+<li>Displayed as $$\exists\ X \in\ D,\ P(X)$$ then there is an X. It is true if we can show at least one example. For example, Let D be empty, it is false because there is nothing to demonstrate with.</li>
+<li>There is a relationship between $$\exists\ and \in$$ of $$\lnot\exists\ X \in D,\ P(X) \equiv \forall X \in D\ \lnot(P(X))$$</li>
+</ul>
+
+
+<hr />
+
+<h3>Precedence Rules</h3>
+
+<ul>
+<li>$$\forall\ and\ \exists$$ have higher predence then <strong>all</strong> prepositonal operators</li>
+<li>For example, $$\forall\ x\ P(x)\land Q(x)$$ $$\forall\ (P(x)\land Q(x))$$ has no truth value because we don't know x.</li>
+</ul>
+
+
+<hr />
+
+<h3>Bound to and Scope</h3>
+
+<ul>
+<li>Consider the following $$\forall\ x (P(x)\land Q(x)) \lor Z(x)$$ x is bound to the set, but if we change $$\forall\ x (P(x)\land Q(y)) \lor Z(y)$$ then y is not bound, only x is.</li>
+</ul>
+
+
+<hr />
+
+<h3>Exercises</h3>
+
+<ol>
+<li>$$Let\ S\ be\ "all\ large\ cars\ get\ bad\ mileage".\ What\ is\ \lnot S$$
+
+<ul>
+<li>$$S^1 = Some\ large\ cars\ have\ good\ mileage$$</li>
+<li>$$S^2 = All\ large\ cars\ have\ good\ mileage$$
+
+<ul>
+<li>Both are correct. However, we must translate it logically. Steps:</li>
+<li>Let G(C) be "C gets good mileage"</li>
+<li>Let L(C) be "C is large"</li>
+<li>$$S \equiv \forall C \in Cars(L(C)\to \lnot G(C))$$
+
+<ul>
+<li> Negation $$\lnot S \equiv \lnot \forall C \in Cars(L(C)\to \lnot G(C))$$</li>
+<li> $$\exists C \lnot (L(C)\to \lnot G(C))$$</li>
+</ul>
+</li>
+<li>$$S^1 \equiv \exists C \in Cars(L(C) \land G(C))$$
+
+<ul>
+<li> Negation $$S^1 \equiv \exists C \in Cars(L(C) \land G(C))$$</li>
+<li> $$\exists C \lnot (\lnot L(C)\lor \lnot G(C))$$</li>
+</ul>
+</li>
+<li>$$S^2 \equiv \forall C \in Cars(L(C) \to G(M))$$
+
+<ul>
+<li> Negation $$S^2 \equiv \forall C \in Cars(L(C) \to G(M))$$</li>
+<li> $$\exists C (L(C)\land G(C))$$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>$$\lnot \forall P(x) \equiv \exists x \lnot P(x)$$</li>
+<li>$$\lnot \exists P(x) \equiv \forall x \lnot P(x)$$</li>
+<li>$$\forall x (P(x) \land Q(x)) \equiv \forall x P(x) \land \forall x Q(x)$$ is true because every possible x is true, the right side says the same thing just split up.</li>
+<li>$$\forall x (P(x) \lor Q(x)) \equiv \forall x P(x) \lor \forall x Q(x)$$ is true because of the same reasons.</li>
+<li>$$\forall x (P(x) \lor Q(X)) \equiv \forall x P(x) \lor \forall x Q(X)$$</li>
+</ol>
+
+
+<hr />
+
+<h3>Equivalence of Two Predicate Formulas</h3>
+
+<ul>
+<li>How do we express the equivalence of $$F_1 \equiv F_2$$ wait until February 7, 2013</li>
+</ul>
+
+</body>
+</html>
