@@ -244,5 +244,33 @@ int *p2 = foo(3);
 <blockquote><p>  This is wrong because in memory <code>ESP</code> from function call will always point to the top, new stacks will be created.</p></blockquote></li>
 </ul>
 
+
+<h3>Second Project Info</h3>
+
+<h5>How to Convert a Number to it's Complement</h5>
+
+<ul>
+<li>Given a number, <code>23</code>, how to convert to binary:
+
+<ul>
+<li>$$$2^0 2^1 2^2 2^3 2^4 …$$$ pick largest, but not over the number. That is our total size, so here will be $$$10000$$$. Continue to go down, changing where the 1 is based on the exponent. See <a href="http://www.wikihow.com/Convert-from-Binary-to-Decimal">here</a>.</li>
+</ul>
+</li>
+<li>Converting <a href="http://en.wikipedia.org/wiki/Ones'_complement">One's Complement</a> to <code>-23</code> is to:
+
+<ol>
+<li>Convert each bit</li>
+<li>Add one</li>
+<li>$$$11101001$$$</li>
+</ol>
+</li>
+<li>What about going back to <code>23</code>?
+
+<ul>
+<li>This does not account for overflow where max is $$$2^{31}-1$$$. The minimum is $$$(-2^{31}-1)-1$$$</li>
+</ul>
+</li>
+</ul>
+
 </body>
 </html>

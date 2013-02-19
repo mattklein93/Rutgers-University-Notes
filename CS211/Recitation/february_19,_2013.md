@@ -48,3 +48,12 @@ int *p2 = foo(3);
 	>	This is wrong because in memory `ESP` from function call will always point to the top, new stacks will be created. 
 	
 ### Second Project Info
+##### How to Convert a Number to it's Complement
+-	Given a number, `23`, how to convert to binary:
+	-	$$$2^0 2^1 2^2 2^3 2^4 …$$$ pick largest, but not over the number. That is our total size, so here will be $$$10000$$$. Continue to go down, changing where the 1 is based on the exponent. See [here](http://www.wikihow.com/Convert-from-Binary-to-Decimal).
+-	Converting [One's Complement](http://en.wikipedia.org/wiki/Ones'_complement) to `-23` is to:
+	1. Convert each bit
+	2. Add one	
+	3. $$$11101001$$$
+-	What about going back to `23`?
+	-	This does not account for overflow where max is $$$2^{31}-1$$$. The minimum is $$$(-2^{31}-1)-1$$$
