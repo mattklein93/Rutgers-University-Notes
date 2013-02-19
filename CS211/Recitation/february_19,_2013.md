@@ -46,3 +46,5 @@ int *p2 = foo(3);
 -	`p2[0]` - `3`
 -	`p1[1]` - `4`
 	>	This is wrong because in memory `ESP` from function call will always point to the top, new stacks will be created. 
+	
+### Second Project Info
