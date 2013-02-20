@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 19, 2013</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>February 19, 2013</h1>
+
+<hr />
+
+<h2>Shifting and Shitting</h2>
+
+<h3>Bit-Ordering</h3>
+
+<ul>
+<li>Most significant bit (in 32bit word) is 31, while the least is 0. For something with 16bit word the most is 15. <strong>Nothing</strong> to do with byte-ordering (big-endian and little-endian), it is just a convention.</li>
+</ul>
+
+
+<h4>Left Shifting</h4>
+
+<ul>
+<li>In C, operators are <code>&lt;&lt;</code> and <code>&lt;&lt;=</code>. High-order bits are lost. Shifting left $$$n$$$ bits is the same as multiplying $$$2^n$$$. For example, $$$4$$$ bit shift is $$$2^4$$$.</li>
+</ul>
+
+
+<p>$$Shift\ N\ Bits = x*2^N$$</p>
+
+<ul>
+<li><code>0000 1000 &lt;&lt; 2</code> is <code>0010 0000</code></li>
+<li><code>1000 1001 &lt;&lt; 2</code> is <code>0010 0100</code></li>
+<li>Shifting any N bit number N results in <strong>zero</strong>.</li>
+</ul>
+
+
+<h4>Right Shifting</h4>
+
+<ul>
+<li>In C operators are <code>&gt;&gt;</code> and <code>&gt;&gt;=</code>. Same as left shifting, it is some number of bits. Must be positive. Low-order bits are lost. These are diving by $$$2^N$$$.</li>
+</ul>
+
+
+<p>$$Shift\ N\ Bits = x/2^N$$</p>
+
+<ul>
+<li>There are <em>arithmetic</em> and <em>logical</em> right shifts.
+
+<ul>
+<li><strong>Logical</strong> - new high bits are zero.</li>
+<li><p><strong>Arithmetic</strong> - sign preserving.</p>
+
+<ul>
+<li>See <a href="http://en.wikipedia.org/wiki/Bitwise_operation#Bit_shifts">wikipedia</a> for example and more infromation.</li>
+</ul>
+</li>
+<li><p><code>y = x &gt;&gt; 2</code> and <code>y &gt;&gt;= 2</code></p></li>
+</ul>
+</li>
+</ul>
+
+
+<h4>Bitwise Operations: And, Or, Exclusive Or, Not</h4>
+
+<ul>
+<li>Act on all the bits all at the same time.</li>
+</ul>
+
+
+<h6>And</h6>
+
+<ul>
+<li>C Operator is <code>&amp;</code>. For a <code>1</code>, they both must be <code>1</code>.</li>
+</ul>
+
+
+<pre><code>    1100 |              0 |     0 |     1 |     1
+&amp;   1010 |   ---&gt;   &amp;   0 | &amp;   1 | &amp;   0 | &amp;   1
+-------- |         ------ | ----- | ----- | -----
+    1000 |              0 |     0 |     0 |     1
+</code></pre>
+
+<h6>Or</h6>
+
+<ul>
+<li>C operator is <code>|</code>.</li>
+</ul>
+
+
+<pre><code>    1100 |              0 |     0 |     1 |     1
+|   1010 |   ---&gt;   |   0 | |   1 | |   0 | |   1
+-------- |         ------ | ----- | ----- | -----
+    1110 |              0 |     1 |     1 |     1
+</code></pre>
+
+<h6>Exclusive Or (XOR)</h6>
+
+<ul>
+<li>C operator is <code>^</code>. If they are the same, you get 0.</li>
+</ul>
+
+
+<pre><code>    1100 |              0 |     0 |     1 |     1
+^   1010 |   ---&gt;   ^   0 | ^   1 | ^   0 | ^   1
+-------- |         ------ | ----- | ----- | -----
+    0110 |              0 |     1 |     1 |     0
+</code></pre>
+
+<h6>Not</h6>
+
+<ul>
+<li>C operator is <code>~</code>. Flips bits.</li>
+</ul>
+
+
+<pre><code>    1100 |       ---&gt;   0 |     0 |     1 |     1
+</code></pre>
+
+<h4>Logical Operations: And, Or, Not</h4>
+
+<ul>
+<li>These are used for comparisons. Unlike in Java, we can capture these results as a <code>1</code> or a <code>0</code>.
+
+<h6>And</h6></li>
+<li>In C, Operator is <code>&amp;&amp;</code>, enables <strong>lazy evaluation</strong> if left most is false:
+<code>
+if (p != 0 &amp;&amp; p-&gt;value &gt; 32)
+</code>
+
+<h6>Or</h6></li>
+<li>In C, Operator is <code>||</code>, enables <strong>lazy evaluation</strong> if left most is true:
+<code>
+if (p != 0 &amp;&amp; p-&gt;value &gt; 32)
+</code>
+
+<h6>Not</h6></li>
+<li><p>In C, Operator is <code>!</code>.</p></li>
+<li><p>Unlike in Java, we can capture these results as a <code>1</code> or a <code>0</code>.</p></li>
+</ul>
+
+
+<pre><code>int k,l,m;
+k = l &gt; 5 &amp;&amp; m &lt; 6;
+k = l &amp;&amp; m;
+</code></pre>
+
+<ul>
+<li><code>A || B = !(!A &amp;&amp; !B)</code> and <code>A &amp;&amp; B = !(!A || !B)</code></li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th>Operator </th>
+<th> Precedence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>!</code> </td>
+<td>   1</td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code>    </td>
+<td>   2</td>
+</tr>
+<tr>
+<td><code>||</code>      </td>
+<td>   3</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4>Masking</h4>
+
+<blockquote><p>  Capture or manipulate multi-bit values that don't fit on byte boundaries or in some fixed number of bytes.</p></blockquote>
+
+<ul>
+<li>Use masking to get sets of bits. Using a bitwise or, will ensure that certain bits are turned on (Displayed as 1). Using a bitwise and, will ensure that certain bits are turned off (Displayed as 0).
+
+<h6>For Example</h6></li>
+<li>32 Bit floating point capture mantissa by doing a mask of <code>00 7F FF FF</code></li>
+<li>64 Bit floating point capture mantissa by doing a mask of <code>000F FFFF FFFF FFFF</code>
+
+<h6>Specific Bits</h6></li>
+<li>Set bit N = 1 in X - <code>X |= (1 &lt;&lt; N)</code></li>
+<li><p>Set bit N = 0 in X - <code>X &amp;= ~(1 &lt;&lt; N)</code></p>
+
+<blockquote><p>  I have n-1 bits, a single 1 bit. Now with the &amp; it is turned off</p></blockquote></li>
+<li><p>Toggle Bit N in X - <code>X ^= (1 &lt;&lt; N)</code></p></li>
+</ul>
+
+
+<h4>Using Two's Complement</h4>
+
+<ul>
+<li>Do X and Y have the same sign?
+
+<ul>
+<li><code>(x^y) &lt; 0</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h5>Swapping Fixed-Point X and Y</h5>
+
+<pre><code>x ^= y
+y ^= x
+x ^= y
+</code></pre>
+
+<h4>Rotation</h4>
+
+<pre><code>unsigned int rshift(unisgned int val, unsigned int n) {
+    unsigned int intsize = sizeof(int)*8;
+    if (n == 0)     //Zero bits is a no-op
+        return val;
+    else
+        return val &gt;&gt; n | val &lt;&lt; (intsize-n);
+}
+</code></pre>
+</body>
+</html>
