@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 21, 2013</title>
+
+</head>
+<body>
+<h1>February 21, 2013</h1>
+
+<hr />
+
+<h2><em>ASS</em>-embly</h2>
+
+<h3>Why?</h3>
+
+<ul>
+<li>Machine interface: where software meets hardware.</li>
+<li>To understand how the hardware works, we have to understand the interface that it exports.</li>
+</ul>
+
+
+<hr />
+
+<h3>IA32</h3>
+
+<ul>
+<li>Many different assemblers, they are processor-specific. We focus on <strong>IA32</strong>.</li>
+</ul>
+
+
+<hr />
+
+<h3>Assembly Programmer's View</h3>
+
+<ul>
+<li>We can see the ALU, Control Logic, PC (instruction pointer), Registers (inside CPU, no memory access overhead. Small, expensive, fastest.), Condition Codes in the <strong>CPU</strong>.</li>
+<li>Communicate addresses to CPU from Memory, and we can read/write, and move data.</li>
+</ul>
+
+
+<h4>Example 1</h4>
+
+<ul>
+<li>Go to address <code>03</code>, and read what is there.</li>
+<li>Send to CPU.</li>
+</ul>
+
+
+<h4>Example 2</h4>
+
+<ul>
+<li>Go to address <code>04</code>, and write what's in CPU.</li>
+</ul>
+
+
+<hr />
+
+<h3>Basic CPU Function</h3>
+
+<ul>
+<li>Arithmetic: +,-,*,/</li>
+<li><p>Logic: bre, jmp</p>
+
+<ol>
+<li>Fetch[PC++]</li>
+<li>Decode</li>
+<li>Execute</li>
+<li>Repeat</li>
+</ol>
+</li>
+</ul>
+
+
+<hr />
+
+<h3>Assembly Characteristics</h3>
+
+<ul>
+<li>Barely data types.</li>
+<li>Integer data of 1,2, or 4 bytes.
+
+<ul>
+<li>Data values, and addresses (numbers)</li>
+</ul>
+</li>
+<li>Floating point data of 4,8,or 10.</li>
+<li>No type checking. No constraints or protection against misinterpretation of data.</li>
+</ul>
+
+
+<h5>Primitive Operations</h5>
+
+<ul>
+<li>Perform arithmetic function on register or memory data.</li>
+<li><p>Can transfer data between memory and registers</p>
+
+<ul>
+<li>Load daa from memory into register</li>
+<li>Store register data into memory</li>
+</ul>
+</li>
+<li><p>Transfer controls (jumps and branches)</p></li>
+</ul>
+
+
+<hr />
+
+<h3>X86 Characteristics</h3>
+
+<ul>
+<li>Variable length instrunctions: 1-15 bytes</li>
+<li>Can address memory directly in most instructions</li>
+<li>Uses little-endian format</li>
+</ul>
+
+
+<blockquote><p>  Our machine instructions have 2,1, or 0 operands. Some instructions have implicit operands, and can get acted on if we do not explicitly state it.</p></blockquote>
+
+<hr />
+
+<h3>Instruction Format</h3>
+
+<ul>
+<li>Usually <code>opcode     operands</code></li>
+</ul>
+
+
+<h4>Opcode</h4>
+
+<ul>
+<li>Short mnemonic for instruction's purpose such as <code>movb, addl</code> etc. Comma seperated.</li>
+</ul>
+
+
+<h4>Operands</h4>
+
+<ul>
+<li>Immediate, register, or memory</li>
+<li>Number of operands command-dependant</li>
+</ul>
+
+
+<hr />
+
+<h3>Registers</h3>
+
+<pre><code>32bit       16bit   8bit
+--------|---------|--------
+%eax        %ax     %ah %al
+%ebx        %bx     %bh %bl
+%ecx        %cx     %ch %cl
+%edx        %dx     %dh %dl
+%ebp        %bp                 Frame pointer registers
+%esp        %sp                 Stack pointer registers
+%eip        %ip                 Instruction pointer register, changes by itself.
+%esi        %si                 along with %edi are for segment addressing
+</code></pre>
+
+<ul>
+<li>The low half and the 16bit registers occupy <strong>the same space</strong></li>
+<li>The 8bit <code>h</code> occupy the high 8bits of thr 16bit registers.</li>
+<li>All are distinct in memory.</li>
+<li>64bit registers start with <code>r</code> for, example <code>%rax%</code> and the 32bit registers occupy the lower half of the 64bit registers space.</li>
+</ul>
+
+
+<h4>Memory Display</h4>
+
+<pre><code>------------------------ %eax
+                -------- %ax
+                ----     %ah
+                    ----  %al
+</code></pre>
+
+<ul>
+<li><code>%ebp</code> is the most recent always. <code>%esp</code> points to the top of the stack always. <code>%eip</code> contains address of the next instruction to execute.</li>
+</ul>
+
+
+<hr />
+
+<h3>Stacks on Stacks on Stacks</h3>
+
+<ul>
+<li>Pushes and pops individual values.</li>
+<li>From the stack I can build a call stack, whic hare the values needed for a particular function invocation.
+
+<ul>
+<li>The call stack contains <strong>call frames</strong> or <strong>activation records</strong></li>
+</ul>
+</li>
+<li>Intel stacks grow to <strong>lower</strong> addresses.</li>
+<li><code>%esp</code> points to the top of the stack always.</li>
+<li>There's a push and a pop instruction, when we push and pop it takes two steps.</li>
+</ul>
+
+
+<h5>Push</h5>
+
+<ol>
+<li>Decrement <code>%esp</code> by 4.</li>
+<li>Copy what we are trying to push to the <code>%esp</code> register.</li>
+</ol>
+
+
+<h5>Pop</h5>
+
+<ol>
+<li>Copy <code>%esp</code> value to where it's going</li>
+<li>Increment <code>%esp</code> by 4.</li>
+</ol>
+
+
+<hr />
+
+<h3>Instructions</h3>
+
+<ul>
+<li>Can be made in text editor, each assembly instruction is <em>one</em> machine instructions.</li>
+<li>The general form is indented by 1 tab each:<code>mnemonic operands</code>.</li>
+</ul>
+
+
+<h4>MOV Instruction</h4>
+
+<pre><code>movb        Move Byte (8 bits)
+movw        Move Word (16 bits)
+movl        Move Double Word (16 bits)
+movq        Move Quad Word (64 bits)
+</code></pre>
+
+<ul>
+<li>We can apply <code>b|w|l|q</code> to many instructions, as these refer to size.</li>
+<li><code>MOV</code> Instructions have two operands: <code>mov  S, D</code>, move source to destination. Can only move things of the same size.</li>
+</ul>
+
+
+<pre><code>movsbw      Move from 8bit to 16
+movsbl      Move from 8bit to 32
+movsbq      Move from 8bit to64
+movswl      Move from 16bit to 32
+movswq      Move from 16bit to 64
+movslq      Move from 32bit to 64
+</code></pre>
+
+<ul>
+<li>Use the <strong>s</strong> to sign extend from source to destination.</li>
+</ul>
+
+
+<pre><code>movzbw      Move from 8bit to 16
+movzbl      Move from 8bit to 32
+movzbq      Move from 8bit to64
+movzwl      Move from 16bit to 32
+movzwq      Move from 16bit to 64
+movzlq      Move from 32bit to 64
+</code></pre>
+
+<ul>
+<li>The <strong>z</strong> is a zero extend.</li>
+</ul>
+
+
+<h5>Example</h5>
+
+<pre><code>movb    $0x43,%bh               //Move 43 to the BH register (byte)
+movw    %ax,%bx                 //Moving 16bits of one register into another register
+movl    $0x007FFFFF,(%ecx)      //Move the hex address to what is in the ecx register
+movsbl  %ah,%ebx                //Moving a byte to a long, grab what's in ah register to the ebx register
+</code></pre>
+
+<h5>MOV-ability</h5>
+
+<pre><code>r   r       Register-&gt;Register
+r   m       Register-&gt;Memory
+m   r       Memory-&gt;Register
+i   r       Immediate(literal)-&gt;Register
+i   m       Immediate(literal)-&gt;Memory
+</code></pre>
+
+<ul>
+<li>To do memory to memory, do memory to register then register to memory.</li>
+</ul>
+
+
+<hr />
+
+<h3>Data Types</h3>
+
+<ul>
+<li>Byte: 8 bits</li>
+<li>Word: 16 bits</li>
+<li>Double Word: 32 bits</li>
+<li>Quad Word: 64bits</li>
+</ul>
+
+
+<hr />
+
+<h3>Operand Form</h3>
+
+<h4>Immediate Addressing</h4>
+
+<ul>
+<li>Operand is <code>immediate</code>. We do this by putting a <code>$</code> and what we want after it. For example: <code>movl   $0x4040, %eax</code>.</li>
+</ul>
+
+
+<h4>Direct Addressing</h4>
+
+<ul>
+<li>Address of operand is found immediately after the instruction. It is aso known as absolute address. For example: <code>movl $eax, 0x0000f</code></li>
+</ul>
+
+
+<h4>Register Specifcation</h4>
+
+<ul>
+<li>Place percent sign in front, such as <code>%eax</code>. For example:: <code>movl    $eax, $ebx</code>.</li>
+</ul>
+
+
+<h4>Indirect Mode Addressing</h4>
+
+<ul>
+<li>Content of operand is an address. Designated as parantehsis around operand. Offset can be specified as immediate mode.
+
+<h6>Example</h6></li>
+<li><code>movl   (%ebp), %eax</code> - Copy value from memory location whose address is in ebp into eax.</li>
+<li><code>movl   -4(%ebp), %eax</code> - Copy value from memory location who is -4 away from ebp into eax.</li>
+<li><code>imm(%eax)</code> - <code>imm</code> is immediate displacement number. The address is <code>%eax + imm</code> which can be 1, 2, or 4 bytes depending on the value.</li>
+</ul>
+
+
+<h4>Indexed Mode Addressing</h4>
+
+<ul>
+<li>Adds conents of two registers to get address of operand. For example <code>movl  (%eab, %esi), %eax</code>. This does address = eab + esi into eax. Along with <code>movl 8(%eab, %esi), %eax</code> which takes the value at 8+eab+esi itno eax.</li>
+<li>Useful with arrays, if you need to walk through the elements of an array. Use one register to hold base address, one ot hold index. Such as implementing the C array access in a for loop.</li>
+<li><code>(, %eax,4)</code> is with scaling factor. Take the eax register, multiply that by a scaling factor, as 1, 2, 4 or 8.</li>
+<li><code>imm(, %eax,4)</code> is scale with the <code>imm</code>, indirectly. add <code>imm</code> at the end.</li>
+<li><code>(%ebx, %eax,4)</code> scale indirect with an index register. Multiply by the scaler and then add the contents to get the address.</li>
+</ul>
+
+
+<hr />
+
+<h3>Assignment 2 Info</h3>
+
+<ul>
+<li>Any positive number can be represented as the sum of various powers of two.</li>
+</ul>
+
+</body>
+</html>
