@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>February 28, 2013</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>February 28, 2013</h1>
+
+<hr />
+
+<h2>Assignment Grades</h2>
+
+<ul>
+<li>10 days for questions on grade, sooner the better. After 10 days, that window closes.</li>
+</ul>
+
+
+<hr />
+
+<h2>Assignment 2</h2>
+
+<ul>
+<li>C ints are a mistake. Use C ints if you want, if you use some other representation, that is extra credit. Using C ints will not work for multiplication, only your arbitrary representation.</li>
+<li>Using <code>printf</code> can not use <code>%d %g %e</code> only '%s %c'.</li>
+</ul>
+
+
+<hr />
+
+<h2>Fuck me in the ASS-embly (Part 3)</h2>
+
+<h3>Shift Instructions</h3>
+
+<pre><code>    sal [b] src,dst     Left Shift Arithmetic Sign Preserved
+    shl [w] src,dst     Left Shift Logical Gives 0's at LSB
+    sar [l] src,dst     Right Shift Arithmetic Sign Preserved
+    shr [q] src,dst     Right Shift Logical Gives 0's at MSB
+</code></pre>
+
+<ul>
+<li>Binary operators, take two operands. <code>dst</code> can be memory or a register. <code>src</code> is an immediate or <code>%cl</code>. <code>dst</code> is shifted. <code>src</code> is how much.</li>
+</ul>
+
+
+<h3>Rotation Instructions</h3>
+
+<pre><code>    ROL [b] src,dst     MSB-&gt;LSB
+    ROR [w] src,dst     LSB-&gt;MSB
+    RCL [l] src,dst     MSB-&gt;CF-&gt;LSB    (Left rotate through carry, treated as extra bit)
+    RCR [q] src,dst     LSB-&gt;CF-&gt;MSB    (Right rotate through carry, treated as extra bit)
+</code></pre>
+
+<ul>
+<li><code>dst</code> can be register or memory, <code>src</code> can be immediate or register. <code>dst</code> is rotated. <code>src</code> is how much.</li>
+</ul>
+
+
+<h3>Takeaways</h3>
+
+<ul>
+<li>If I add two n bit numbers, the sum is not more than n+1 bits.</li>
+<li>The product of any two n bit numbers, will require not more than 2n bits.</li>
+<li>If N bits is unsigned: $$$0...2^n-1$$$
+$$2^n-1 * 2^n-1 = -2^n+1 +(2^n)^2-2^n = 2^{2n}-2^{n+1}+1$$</li>
+<li>Largest possible product is $$$2^{2n}-2^{n+1}+1$$$</li>
+<li>If N bits is signed: $$$-2^{n-1}…2^{n-1}-1$$$
+$$2^{n-1}-1*2^{n-1}-1 = -2^{n-1}+1 + (2^{n-1})^2-2^{n-1} = 2^{2n-2}-2^n+1$$</li>
+</ul>
+
+
+<h2>Multiplication</h2>
+
+<pre><code>        Unsigned
+    mul [b] One operand (Register or memory, **not** immediate)
+        [w]
+        [q]
+        [l]
+</code></pre>
+
+<pre><code>    mulb    %ax := %al&amp;*opnd8
+    mulw    %dx:%ax := %ax*opnd16       Register pair: ax gets the low half, dx gets high half. They are implicit.
+    mull    %edx:%eax := %eax*opnd32
+    mulq    %rdx:%rax := %rax*opnd64
+</code></pre>
+
+<ul>
+<li>Register pairs are implicit, we do <strong>not</strong> code them.</li>
+</ul>
+
+
+<pre><code>        Signed
+    imul [b]    One operand (Register or memory, **not** immediate)
+         [w]
+         [q]
+         [l]
+</code></pre>
+
+<pre><code>    imulb   %ax := %al&amp;*opnd8
+    imulw   %dx:%ax := %ax*opnd16       Register pair: ax gets the low half, dx gets high half. They are implicit.
+    imull   %edx:%eax := %eax*opnd32
+    imulq   %rdx:%rax := %rax*opnd64
+</code></pre>
+</body>
+</html>
