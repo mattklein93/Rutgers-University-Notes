@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>March 5, 2013</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>March 5, 2013</h1>
+
+<hr />
+
+<h2>Flow Control</h2>
+
+<h3>Condition Flags</h3>
+
+<pre><code>    cf  carry   //Extra bit if 2 bits are added and are n+1
+    zf  zero    //Equal or it is zero
+    sf  sign    //If the result is 1, its either negative or a zero if it isnt negative
+    of  overflow    //Twos complement from arithmetic
+</code></pre>
+
+<ul>
+<li>These are built in to the Intel architecture.</li>
+</ul>
+
+
+<pre><code>    cmp [BWLQ]  src,dst //Non-destructive subtraction. 0 if they are the same. Subtracts source from destination.
+    test [BWLQ] src,dst //Non-destructive bitwise and.
+</code></pre>
+
+<ul>
+<li>Based on the condition flags, we can use them.</li>
+</ul>
+
+
+<h3>Conditional Jumps</h3>
+
+<pre><code>    ==              JE  JZ      ZF
+    !=              JNE JNZ     ~ZF
+    signed &gt;        JG  JNLE    ~(SF^OF)&amp;~ZF
+    unsigned &gt;      JA  JNBE    ~OF&amp;~ZF //Above
+    signed &lt;        JL  JNGE    SF^OF
+    unsigned &lt;      JB  JNAE    CF  //Below
+    signed &gt;=                   ~(SF^OF)
+    unsigned &gt;=                 ~CF
+    signed &lt;=       JLE JNG     (SF^OF)|ZF
+    unsigned &lt;=     JBE JNA     OF|ZF   //Jump below equals
+    Negative?       JS      
+    Not Negative    JNS 
+</code></pre>
+
+<ul>
+<li>We jump to some target, that is labeled in the program. We can have multiple labels for the same thing.</li>
+</ul>
+
+
+<h3>Unconditional Jumps</h3>
+
+<ul>
+<li>Can be direct <strong>or</strong> indirect.</li>
+<li>For example, a direct jump: <code>jump .L37</code>. An indirect jump: <code>jmp *%eax   jmp *(%ebx)</code>. The <code>%ebx</code> register is memory, (hence the paranthesis). THe asterisk <strong>signifies</strong> an indirect jump.</li>
+</ul>
+
+
+<h3>Translation</h3>
+
+<h4>If-Else</h4>
+
+<pre><code>if-else:
+    movl    12(%ebp),%edx
+    cmp     $3,%edx
+    jne     elsepart
+    .
+    .
+    jmp done
+elsepart:
+    .
+    .
+done:
+    .
+    .
+</code></pre>
+
+<h4>If (x &amp; y)</h4>
+
+<pre><code>if (x &amp; y):
+    movl    12(%ebp),%edx
+    test    8(%ebp),%edx
+    jz      else2
+    .
+    .
+    jmp     done2
+else2:
+    .
+    .
+done2:
+    .
+    .
+</code></pre>
+
+<h4>For Loop</h4>
+
+<pre><code>for loop:
+    movl    $1,%eax
+top:
+    cp      $10,%eax
+    jge     done
+    .       (Body)
+    .       (of Loop)
+    inc     %eax
+    jmp     top
+done:
+    .
+    .
+</code></pre>
+</body>
+</html>
