@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>March 14, 2013</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>March 14, 2013</h1>
+
+<hr />
+
+<h2>Digimon Logic I</h2>
+
+<ul>
+<li>Transistor's are the building block of computers.</li>
+<li>Microprocessors contain millions of transistors.</li>
+<li>Every transistor is a switch.</li>
+<li>We build these out of AND, OR, NOT.</li>
+</ul>
+
+
+<h3>Transistors</h3>
+
+<ul>
+<li><strong>MOS transistor</strong> - Metal Oxide Semiconductor. Has 4 components, a source, drain, gate, and a body. Current flows from the source to the drain, the gate decides if current can flow to the drain.</li>
+<li>Two kinds of transistors, N-type and P-type.
+
+<ul>
+<li>N-type: If the circuit has a positive value it is closed. If it is zero, it is open (no current flows).</li>
+<li>P-type: if positive no current flows. If zero it is closed.</li>
+</ul>
+</li>
+<li><strong>CMOS transistor</strong> - Complementary Metal Oxide Semiconductor. Has 4 components, a source, drain, gate, and a body. Current flows from the source to the drain, the gate decides if current can flow to the drain. Uses both p-type and n-type.</li>
+<li><strong>NOR and NAND</strong> - not or and not and.</li>
+</ul>
+
+
+<h4>Logic Gates</h4>
+
+<p><img src="https://lh3.ggpht.com/_HFj8i7BSF_o/TEb84W-aD7I/AAAAAAAAADU/7QqSxF6Kcas/s1600/gates.gif" alt="Basic Logic Gate Symbols" /></p>
+
+<ul>
+<li><strong>Logic Gates</strong> - We build AND, OR, NOT out of transistors.</li>
+<li>We can take any truuth table with AND, OR, NOT.</li>
+</ul>
+
+
+<h4>DeMorgan's Law and Logic Gates</h4>
+
+<p><img src="http://www.ustudy.in/sites/default/files/images/De-marg%20f%20law.PNG" alt="DeMorgan's Law - Logic" /></p>
+
+<ul>
+<li>We can convert AND to OR with NOT, and OR to AND with NOT.</li>
+<li>Negation of a conjuction is a disjunction of the negations.</li>
+<li>Negation of a disjunction is a conjuction of the negations.</li>
+<li><p>ANY gate can be implemented using either NOR or NAND gates. This is important becuase when building a chip it becomes easier.</p></li>
+<li><p>AND and OR can have any number of inputs.</p>
+
+<p><img src="http://www.mybestnotes.co.in/notes/digital-logic-gates/3ip-and-gate.gif" alt="3 Input Gate" /></p></li>
+<li><p>We can use this to become a decoder, a multiplexer (MUX), Full Adder,</p>
+
+<p><img src="http://cpuville.com/images/decoder_3.jpg" alt="Decoder" />
+<img src="http://www.ee.surrey.ac.uk/Projects/Labview/multiplexer/graphics/multiplexer.gif" alt="Multiplexer" />
+<img src="http://www.c-jump.com/CIS77/images/figure_3_15_full_adder.png" alt="Full Adder" /></p></li>
+</ul>
+
+
+<hr />
+
+<h4>Half Adder</h4>
+
+<ul>
+<li><strong>Half Adder</strong> - adds two binary digits. The outputs are a sum digit and a carry digit.
+
+<ul>
+<li>Sum = $$$\lnot AB+A \lnot B$$$</li>
+<li>Carry = AB</li>
+</ul>
+
+
+<p><img src="http://raonlife.com/_/media/photo/2012/01/07/GBWfKEAFz_11_02_half_adder_truth_table.gif" alt="Half Adder Truth Table" />
+<img src="http://academic.greensboroday.org/~regesterj/potl/Electronics/LogicGates/325px-Half-adder.png" alt="Half Adder" /></p></li>
+</ul>
+
+
+<hr />
+
+<h4>Full Adder</h4>
+
+<ul>
+<li><strong>Full Adder</strong> - adds binary numbers and deals with an input carry value and an output carry value. Has three inputs.
+
+<ul>
+<li>Sum = $$$A \lnot B \lnot C + \lnot AB \lnot C + \lnot A \lnot B C + ABC$$$</li>
+<li>Carry Out = $$$AB+BC+AC$$$</li>
+</ul>
+
+
+<p><img src="http://hyperphysics.phy-astr.gsu.edu/hbase/electronic/ietron/fulladd.gif" alt="Full Adder Truth Table" />
+<img src="http://i.stack.imgur.com/0rqZz.png" alt="Full Adder" /></p></li>
+</ul>
+
+
+<h5>Multi-Bit Adder</h5>
+
+<ul>
+<li>We can cascade full adders together to make more size adders.</li>
+</ul>
+
+
+<hr />
+
+<h3>Circuit Design</h3>
+
+<ol>
+<li>Derive a truth table for this circuit</li>
+<li>Derive a Boolean expression for the truth table</li>
+<li>Build a circuit given the Boolean expression
+
+<ul>
+<li>Building the circuit involves mapping the Boolean expression to actual gates. This part is easy.</li>
+<li>Deriving the Boolean expression is easy. Deriving a good one is tricky.</li>
+</ul>
+</li>
+</ol>
+
+
+<h4>Truth Table to Boolean Expression</h4>
+
+<ul>
+<li><p>Given a circuit isolate the rows in which te output of the circuit should be <em>true</em>.</p>
+
+<p><img src="http://openbookproject.net/electricCircuits/Digital/14065.png" alt="Circuit Example" /></p></li>
+<li><p>A product term that contains exactly one instance of every variable is called a <strong>minterm</strong> (Minimal Term)</p></li>
+<li>Given the expression for each row, build a larger Boolean expression for the entire table.
+
+<ul>
+<li>This is a <strong>sum of products</strong>.</li>
+</ul>
+
+
+<p><img src="http://openbookproject.net/electricCircuits/Digital/04364.png" alt="Circuit Expression" /></p></li>
+</ul>
+
+
+<h4>Approach One: Algebra</h4>
+
+<ul>
+<li><p>Simply use the rules of boolean logic:</p>
+
+<p><img src="http://www.eecs.berkeley.edu/~newton/Classes/CS150sp98/lectures/week4_1/img010.GIF" alt="Rules" /></p></li>
+<li><p>For example:</p>
+
+<p><img src="http://openbookproject.net/electricCircuits/Digital/14066.png" alt="Rules Example" /></p></li>
+</ul>
+
+
+<hr />
+
+<h3>Karnaugh Maps</h3>
+
+<ul>
+<li>A graphical technique to view minterms and how they releate.</li>
+<li>The map is a diagram made up of squares, with each square representing a single minterm.</li>
+<li>Minterms resulting in a 1 are marked as 1, all others are marked as 0.</li>
+<li><p>For example:</p>
+
+<p><img src="http://openbookproject.net/electricCircuits/Digital/14096.png" alt="2 Variable K-Map" /></p></li>
+<li><p>In higher maps, several variables occupy a given axis. The sequence of 1s and 0s follow a <em>gray code sequence</em> (Success members differ by only 1 bit).</p>
+
+<p><img src="http://openbookproject.net/electricCircuits/Digital/14093.png" alt="3 Varialbe K-Map" /></p></li>
+</ul>
+
+
+<h4>Gray Code</h4>
+
+<ul>
+<li>Binary numnber where succes members differ by only 1 bit.</li>
+<li><p>Assigns to each set of contigous integers, or each member of a circular list, a word of symbols where adjacent words only differ by one symbol. In binary, it is 1 and 0.</p>
+
+<p><img src="https://i.cmpnet.com/pldesignline/2006/12/max-gc-03.gif" alt="Gray Code" /></p></li>
+</ul>
+
+
+<pre><code>return (num &gt;&gt; 1) ^ num;
+</code></pre>
+
+<ul>
+<li>An n bit gray code is a permuation of $$$0-2^{n-1}$$$.</li>
+<li>The n-1 bit list is embedded in the first half of the n bit list.</li>
+<li>Each predecessor is different by 1 bit.</li>
+</ul>
+
+</body>
+</html>

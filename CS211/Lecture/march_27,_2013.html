@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>March 27, 2013</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>March 27, 2013</h1>
+
+<hr />
+
+<h2>Computer Internals</h2>
+
+<ul>
+<li>The <strong>ALU</strong> is the <em>Arithmetic Logic Unit</em>. It is hardwired to do addition, subtraction, logical and/or/xor, comparision (result from some condition code), changes to control flow, and character operations (move bytes, compare bytes, interrupt).</li>
+<li>It's basically the core of every processor. It uses <strong>condition codes</strong>, or bits to show if results where zero, negative, carry occured, etc.</li>
+</ul>
+
+
+<hr />
+
+<h2>Conversion with Radix</h2>
+
+<ul>
+<li>A method that lets us convert numbers of different bases, <strong>including</strong> floating point numbers.</li>
+</ul>
+
+
+<p>$$d<em>{n-1} * r^{n-1} + … + d</em>{0} * r^{0} + d<em>{-1} * r^{-1} + … + d</em>{-m} * r^{-m}$$</p>
+
+<ul>
+<li>Take each digit, multiply it by the base with an exponent value. The exponent is in what placement.</li>
+<li><p>With decimal numbers, go backwards and use negative exponents.</p></li>
+<li><p>For example, in binary:</p></li>
+</ul>
+
+
+<p>$$1011.01_2$$</p>
+
+<ul>
+<li><p>$$$1<em>2^3+1</em>2^1+<em>2^0+1</em>2^{-2}$$$ = 11.25</p></li>
+<li><p>In order to go from decimal to any base, divide by the base you want to go to. For example, using $$$123.375$$$</p></li>
+</ul>
+
+
+<p>$$123/8 = 15, remainder 3$$
+$$15/8 = 1, remainder 7$$
+$$1/ 8 = 0, remainder 1$$</p>
+
+<ul>
+<li>This gives us the LEFT side, since we are dividing.</li>
+</ul>
+
+
+<p>$$0.375*8 = 3.0 (3)$$</p>
+
+<ul>
+<li><p>This gives us the right side, we <strong>stop when the value after the decimal point is 0</strong>.</p></li>
+<li><p>To put this as our answer, read the <strong>integral part</strong> from <strong>bottom to top</strong> and the fraction part <strong>top to bottom</strong>.</p></li>
+</ul>
+
+
+<p>$$173.3_8$$</p>
+
+<hr />
+
+<h2>Gray Code</h2>
+
+<ul>
+<li>The size of the resulting gray code of n-bits is $$$2^n$$$.</li>
+</ul>
+
+
+<table>
+<thead>
+<tr>
+<th>1 bit   </th>
+<th>   2bit    </th>
+<th>   3bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0       </td>
+<td>   00      </td>
+<td>   000</td>
+</tr>
+<tr>
+<td>1       </td>
+<td>   01      </td>
+<td>   001</td>
+</tr>
+<tr>
+<td></td>
+<td>   11      </td>
+<td>   011</td>
+</tr>
+<tr>
+<td></td>
+<td>   10      </td>
+<td>   010</td>
+</tr>
+<tr>
+<td></td>
+<td>           </td>
+<td>   110</td>
+</tr>
+<tr>
+<td></td>
+<td>           </td>
+<td>   111</td>
+</tr>
+<tr>
+<td></td>
+<td>           </td>
+<td>   101</td>
+</tr>
+<tr>
+<td></td>
+<td>           </td>
+<td>   100</td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>Converting <strong>from binary to gray</strong> is created by shifting right one bit, and then an exclusive or.</li>
+<li>Converting <strong>from gray to binary</strong> is created by</li>
+</ul>
+
+
+<hr />
+
+<h2>Assembly Instructions</h2>
+
+<ul>
+<li>Basic assembly instructions are read in this order: right to left source, right to left destination.
+
+<ul>
+<li>For example, <code>96(%ebp,%eax,8)</code> means "multiply 8 by memory of eax register, added to memory of ebp register, then add 96 to this". This can be a source <strong>or</strong> a destination <em>but <strong>not</strong> both</em>.</li>
+</ul>
+</li>
+<li>Parenthesis is <strong>always</strong> memory (think derferencing).</li>
+<li>The difference between <code>leal</code> and <code>mov</code> is <code>mov</code> actually moves contents, <code>leal</code> just copies the address (<strong>not</strong> the contents).</li>
+</ul>
+
+
+<hr />
+
+<h2>Call Stack</h2>
+
+<ul>
+<li><code>esp</code> - stack pointer, <strong>points to top of stack</strong>.</li>
+<li><code>ebp</code> - base pointer, <strong>frame pointer</strong>.</li>
+<li><strong>Pushing</strong> - subtract.</li>
+<li><strong>Popping</strong> - addition.</li>
+<li>The <strong>prologue</strong> is code to set up the stack-frame. The <strong>epilogue</strong> is what undoes the prologue, reversing it.</li>
+</ul>
+
+
+<pre><code>     Prologue
+     ----     --------
+     push     ebp
+     mov      ebp, esp
+     sub      esp, 20 
+
+     Epiloguee   
+     ---      --------
+     mov      esp, ebp
+     pop      ebp
+     ret      8
+</code></pre>
+
+<hr />
+
+<h2>Logic Gates</h2>
+
+<ul>
+<li>AND looks similar to a half circle.</li>
+<li>OR looks similar to a curved triangle (all 3 lines are curved).</li>
+<li>NOT gates are triangles with a dot <strong>after</strong> it (dot shows negation).</li>
+<li>XOR gates look similar to OR gates, but with a second curved line before the gate.</li>
+<li>NEGATION is created by a whole circle going to the output (after the gate).</li>
+</ul>
+
+
+<hr />
+
+<h2>Endianness and Changing</h2>
+
+<ul>
+<li>Swap only the bytes, not the bits in the bytes.</li>
+<li><strong>Big Endian</strong> - most significant first.</li>
+<li><strong>Little Endian</strong> - leat significant first.</li>
+</ul>
+
+
+<hr />
+
+<h2>A Guide to Understanding Pointer Issues</h2>
+
+<ul>
+<li><p>An array <strong>is always a pointer</strong> to n data-types. <code>array</code> and <code>array[0]</code> point to the same location in memory. In order to always find the start, we set up a pointer (a <code>*</code> in C) to some temporary value. So, we have <code>int *arraystart</code> and <code>arraystart = array</code>.</p></li>
+<li><p>Placing a pointer to a value - Use the asterisk.</p></li>
+<li>Placing a value to a pointer - Use the ampersand.</li>
+</ul>
+
+
+<pre><code>int *p;
+int i;
+
+
+int i2 = *p;
+
+int *p2 = &amp;i;
+</code></pre>
+
+<ul>
+<li>Using this code, we can get the integer value in p, and can point p2 to the value of i.</li>
+</ul>
+
+
+<pre><code>int a[2];
+int i = *a;
+int i2 = a[0];
+</code></pre>
+
+<ul>
+<li>Using this code, we have an array of 3 elements. We can use <code>*a</code> to get the first element, or use <code>a[0]</code>.</li>
+</ul>
+
+
+<pre><code>int a[2];
+int i = *(a + 1);
+int i2 = a[1];
+
+//  a[i] == *(a + i); 
+</code></pre>
+
+<ul>
+<li><p>Using this code, we have an array of 3 elements. We can use <code>*(a + 1)</code> to get the second location (this is the + 1). Or we can simply use <code>a[1]</code>. All <code>a[i]</code> does is <code>*(a + i)</code> where i is the index.</p></li>
+<li><p>When declaring a function parameter, use the asterisk.</p></li>
+<li>When using the address of a value, use the ampersand. When we want to read or write the value in the pointer, we use an asterisk.</li>
+<li>Modifying any pointer, we must use the asterisk as parameter, and in the function code.</li>
+<li>Ampersand <strong>does not</strong> give value.</li>
+</ul>
+
+</body>
+</html>
